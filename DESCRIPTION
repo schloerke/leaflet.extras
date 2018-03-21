@@ -32,15 +32,8 @@ Imports:
     stringr,
     magrittr
 Suggests:
-    V8,
-    dplyr,
     jsonlite,
-    geojsonio,
-    purrr,
-    readr,
-    rmapshaper,
-    htmlTable,
-    memoise
+    readr
 URL: https://github.com/bhaskarvk/leaflet.extras, https://bhaskarvk.github.io/leaflet.extras/
 BugReports: https://github.com/bhaskarvk/leaflet.extras/issues
 RoxygenNote: 6.0.1
