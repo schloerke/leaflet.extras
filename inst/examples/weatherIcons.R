@@ -46,9 +46,9 @@ cities_icons <- weatherIcons(
     cities_forecast,
     function(forecast){
       temp <- forecast$currently$temperature
-      if(temp<60) {
+      if (temp<60) {
         "lightblue"
-      } else if(temp >= 60 && temp <65) {
+      } else if (temp >= 60 && temp <65) {
         "orange"
       } else {
         "red"

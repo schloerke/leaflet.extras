@@ -69,17 +69,17 @@ addDrawToolbar <- function(
   singleFeature = FALSE
 ) {
 
-  if(!is.null(targetGroup) && !is.null(targetLayerId)) {
+  if (!is.null(targetGroup) && !is.null(targetLayerId)) {
       stop("To edit existing features either specify a targetGroup or a targetLayerId, but not both")
   }
 
   map$dependencies <- c(map$dependencies, drawDependencies())
 
   markerIconFunction <- NULL
-  if(inherits(markerOptions, 'list') && !is.null(markerOptions$markerIcon)) {
-     if(inherits(markerOptions$markerIcon, 'leaflet_icon')) {
+  if (inherits(markerOptions, 'list') && !is.null(markerOptions$markerIcon)) {
+     if (inherits(markerOptions$markerIcon, 'leaflet_icon')) {
        markerIconFunction <- defIconFunction
-     } else if(inherits(markerOptions$markerIcon, 'leaflet_awesome_icon')) {
+     } else if (inherits(markerOptions$markerIcon, 'leaflet_awesome_icon')) {
        map <- addAwesomeMarkersDependencies(
          map, markerOptions$markerIcon$library)
        markerIconFunction <- awesomeIconFunction

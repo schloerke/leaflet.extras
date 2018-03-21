@@ -1,6 +1,6 @@
 defIconFunction <-
   JS("function(icon){
-        if(!$.isEmptyObject(icon)) {
+        if (!$.isEmptyObject(icon)) {
           return L.icon(icon);
         } else {
           return L.icon();
@@ -9,8 +9,8 @@ defIconFunction <-
 
 awesomeIconFunction <-
   JS("function(icon){
-        if(!$.isEmptyObject(icon)) {
-          if(!icon.prefix) {
+        if (!$.isEmptyObject(icon)) {
+          if (!icon.prefix) {
             icon.prefix = icon.library;
           }
           return L.AwesomeMarkers.icon(icon);
@@ -26,10 +26,10 @@ awesomeIconFunction <-
 #' @export
 #' @rdname utils
 propsToHTML <- function(props, elem=NULL, elem.attrs=NULL) {
-  if(!(inherits(props,'list') || (class(props) == 'character')) ||  length(props)<1 ) {
+  if (!(inherits(props,'list') || (class(props) == 'character')) ||  length(props)<1 ) {
     stop("props needs to to be a list/vector of character strings with at least one element")
   }
-  if(!is.null(elem.attrs) &&
+  if (!is.null(elem.attrs) &&
      (!inherits(elem.attrs,'list') ||
       length(elem.attrs)<1 ||
       is.null(names(elem.attrs)))) {
@@ -37,21 +37,21 @@ propsToHTML <- function(props, elem=NULL, elem.attrs=NULL) {
   }
   JS(sprintf(
     "function(feature){return '%s' + L.Util.template('%s',feature.properties); + '%s';}",
-    if(!is.null(elem) && !elem == '')
+    if (!is.null(elem) && !elem == '')
       sprintf('<%s%s>',
               elem,
-              if(!is.null(elem.attrs))
+              if (!is.null(elem.attrs))
                 paste(sapply(names(elem.attrs),
                              function(attr) sprintf(' %s="%s"',attr,elem.attrs[[attr]])),collapse=" ")
               else
                 '' )
     else
       '',
-    if(length(props)>1)
+    if (length(props)>1)
       paste(stringr::str_replace(props,'(.*)','{\\1}'),collapse=', ')
     else
       props,
-    if(!is.null(elem) && !elem == '')
+    if (!is.null(elem) && !elem == '')
       sprintf('</%s>',elem)
     else
       ''
@@ -64,14 +64,14 @@ propsToHTML <- function(props, elem=NULL, elem.attrs=NULL) {
 #' @export
 #' @rdname utils
 propstoHTMLTable <- function(props = NULL, table.attrs=NULL, drop.na = TRUE) {
-  if(!is.null(table.attrs) &&
+  if (!is.null(table.attrs) &&
      (!inherits(table.attrs,'list') ||
       length(table.attrs)<1 ||
       is.null(names(table.attrs)))) {
     stop("If table.attrs is provided, then it needs to be a named list with at least one element")
   }
 
-  if(!is.null(props) && length(props)>=1)
+  if (!is.null(props) && length(props)>=1)
     JS(sprintf(
       "function(feature){
          return '<table%s><caption>Properties</caption><tbody style=\"font-size:x-small\">' +
@@ -79,7 +79,7 @@ propstoHTMLTable <- function(props = NULL, table.attrs=NULL, drop.na = TRUE) {
              L.Util.template('%s',feature.properties)
            )+ '</tbody></table>';
        }",
-      if(!is.null(table.attrs))
+      if (!is.null(table.attrs))
         paste(sapply(names(table.attrs),
                      function(attr) sprintf(' %s="%s"',attr,table.attrs[[attr]])),collapse=" ")
       else '',
@@ -92,7 +92,7 @@ propstoHTMLTable <- function(props = NULL, table.attrs=NULL, drop.na = TRUE) {
           ( function(props) {
             var rws = '';
             $.each(props, function (k, v) {
-              if( %s ||(v !== null && typeof v !== 'undefined')) {
+              if ( %s ||(v !== null && typeof v !== 'undefined')) {
                 rws = rws.concat('<tr><td><b>'+k+'</b></td><td>'+
                 ((v !== null && typeof v !== 'undefined') ? v : '') +
                 '</td></tr>');
@@ -100,11 +100,11 @@ propstoHTMLTable <- function(props = NULL, table.attrs=NULL, drop.na = TRUE) {
             });
             return rws;
           })(feature.properties) + '</tbody></table>';}",
-     if(!is.null(table.attrs))
+     if (!is.null(table.attrs))
        paste(sapply(names(table.attrs),
                     function(attr) sprintf(' %s="%s"',attr,table.attrs[[attr]])),collapse=" ")
      else '',
-     if(drop.na) "false" else "true"
+     if (drop.na) "false" else "true"
     ))
 
 }

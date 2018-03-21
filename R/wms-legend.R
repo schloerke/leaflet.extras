@@ -53,7 +53,7 @@ addWMSLegend <- function(map, uri, position = 'topright', layerId = NULL) {
                         JS("function(el,x,data){
                               var map = this;
                               var wmsLegendControl = new L.Control.WMSLegend(data.options);
-                              if(data.layerId) {
+                              if (data.layerId) {
                                 map.controls.add(wmsLegendControl);
                               } else {
                                 map.controls.add(wmsLegendControl, data.layerId);

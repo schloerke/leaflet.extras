@@ -63,7 +63,7 @@ invokeJSAddMethod <- function(
   highlightOptions = NULL,
   ...
 ) {
-  if(!is.null(markerType) && !(markerType %in% c('marker', 'circleMarker'))) {
+  if (!is.null(markerType) && !(markerType %in% c('marker', 'circleMarker'))) {
     stop("markerType if specified then it needs to be either 'marker' or 'clusterMarker'")
   }
 
@@ -80,13 +80,13 @@ invokeJSAddMethod <- function(
     dashArray = dashArray, smoothFactor = smoothFactor, noClip = noClip))
 
   markerIconFunction <- NULL
-  if(!is.null(markerIcons)) {
-     if(inherits(markerIcons,'leaflet_icon_set') ||
+  if (!is.null(markerIcons)) {
+     if (inherits(markerIcons,'leaflet_icon_set') ||
         inherits(markerIcons, 'leaflet_icon')) {
        markerIconFunction <- defIconFunction
-     } else if(inherits(markerIcons,'leaflet_awesome_icon_set') ||
+     } else if (inherits(markerIcons,'leaflet_awesome_icon_set') ||
                inherits(markerIcons, 'leaflet_awesome_icon')) {
-       if(inherits(markerIcons,'leaflet_awesome_icon_set')) {
+       if (inherits(markerIcons,'leaflet_awesome_icon_set')) {
          libs <- unique(sapply(markerIcons,function(icon) icon$library))
          map <- addAwesomeMarkersDependencies(map,libs)
        } else {
@@ -98,7 +98,7 @@ invokeJSAddMethod <- function(
      }
   }
 
-  if(missing(...)) {
+  if (missing(...)) {
     invokeMethod(
       map, getMapData(map), jsMethod, data, layerId, group,
       markerType, markerIcons,

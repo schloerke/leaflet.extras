@@ -169,7 +169,7 @@ addReverseSearchOSM <- function(
   displayText = TRUE,
   group = NULL) {
   map$dependencies <- c(map$dependencies, leafletSearchDependencies())
-  if(displayText == TRUE) {
+  if (displayText == TRUE) {
     map <- map %>%
       addControl("Click anywhere on the map to reverse geocode",
                  position="topright", layerId = 'reverseSearchOSM')
@@ -210,7 +210,7 @@ addSearchGoogle <- function(
   options = searchOptions(autoCollapse = TRUE, minLength = 2)
 ) {
   url <- "https://maps.googleapis.com/maps/api/js?v=3"
-  if(is.null(apikey)) {
+  if (is.null(apikey)) {
     warning("Google Geocoding works best with an apikey")
   } else {
    url <- paste0(url, "&key=", apikey)
@@ -253,12 +253,12 @@ addReverseSearchGoogle <- function(
   group = NULL) {
   map$dependencies <- c(map$dependencies, leafletSearchDependencies())
   url <- "https://maps.googleapis.com/maps/api/js?v=3"
-  if(is.null(apikey)) {
+  if (is.null(apikey)) {
     warning("Google Geocoding works best with an apikey")
   } else {
    url <- paste0(url, "&key=", apikey)
   }
-  if(displayText == TRUE) {
+  if (displayText == TRUE) {
     map <- map %>%
       addControl("Click anywhere on the map to reverse geocode",
                  position="topright", layerId = 'reverseSearchGoogle')

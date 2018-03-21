@@ -70,7 +70,7 @@ addWebGLHeatmap = function(
   map$dependencies <- c(map$dependencies,
                         webGLHeatmapDependency())
 
-  if(!is.null(gradientTexture) &&
+  if (!is.null(gradientTexture) &&
      !gradientTexture %in% c("skyline", "deep-sea")) {
     stop("Only allowed values for gradientTexture are 'skyline' and 'deep-sea'")
   }
@@ -78,10 +78,10 @@ addWebGLHeatmap = function(
   pts = leaflet::derivePoints(
     data, lng, lat, missing(lng), missing(lat), "addWebGLHeatmap")
 
-  if(is.null(intensity)) {
+  if (is.null(intensity)) {
     points <- cbind(pts$lat, pts$lng)
   } else {
-    if(inherits(intensity,'formula')) {
+    if (inherits(intensity,'formula')) {
       intensity <- eval(intensity[[2]], data, environment(intensity))
     }
     points <- cbind(pts$lat, pts$lng, intensity)

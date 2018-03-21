@@ -79,10 +79,10 @@ addHeatmap = function(
   pts = leaflet::derivePoints(
     data, lng, lat, missing(lng), missing(lat), "addHeatmap")
 
-  if(is.null(intensity)) {
+  if (is.null(intensity)) {
     points <- cbind(pts$lat, pts$lng)
   } else {
-    if(inherits(intensity,'formula')) {
+    if (inherits(intensity,'formula')) {
       intensity <- eval(intensity[[2]], data, environment(intensity))
     }
     points <- cbind(pts$lat, pts$lng, intensity)

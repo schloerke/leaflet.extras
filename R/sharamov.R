@@ -44,7 +44,7 @@ addBingTiles <- function(
   ...
   ) {
 
-  if(is.null(apikey))
+  if (is.null(apikey))
     stop("Bing Tile Layer requires an apikey")
 
   imagerySet <- match.arg(imagerySet)

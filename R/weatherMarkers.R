@@ -101,7 +101,7 @@ makeWeatherIcon <- function(
   extraClasses= NULL
 ) {
 
-  if(!markerColor %in% markerColors) {
+  if (!markerColor %in% markerColors) {
     stop(sprintf("markerColor should be one of %s",paste(markerColors,collapse=', ')))
   }
 
@@ -139,7 +139,7 @@ weatherIcons <- function(
   extraClasses= NULL
 ) {
 
-  if(!any(markerColor %in% markerColors)) {
+  if (!any(markerColor %in% markerColors)) {
     stop(sprintf("markerColor should be one of %s",paste(markerColors,collapse=', ')))
   }
 
