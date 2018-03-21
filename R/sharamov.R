@@ -50,6 +50,6 @@ addBingTiles <- function(
   imagerySet <- match.arg(imagerySet)
 
   map$dependencies <- c(map$dependencies, bingLayerDependencies())
-  invokeMethod(map, getMapData(map), 'addBingTiles', layerId, group,
+  invokeMethod(map, getMapData(map), "addBingTiles", layerId, group,
                list(apikey = apikey, type = imagerySet, ...))
 }

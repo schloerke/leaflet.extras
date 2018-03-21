@@ -4,10 +4,10 @@ drawDependencies <- function() {
   #     "draw", version = "0.1.0",
   #     system.file("htmlwidgets/lib/draw", package = "leaflet.extras"),
   #     script = c(
-  #       'leaflet.draw-src.js',
-  #       'Leaflet.draw.drag-src.js',
-  #       'draw-bindings.js'),
-  #     stylesheet = c('leaflet.draw.css')
+  #       "leaflet.draw-src.js",
+  #       "Leaflet.draw.drag-src.js",
+  #       "draw-bindings.js"),
+  #     stylesheet = c("leaflet.draw.css")
   #   )
   # )
   list(
@@ -58,7 +58,7 @@ drawDependencies <- function() {
 #' # browseURL(system.file("examples/draw.R", package = "leaflet.extras"))
 addDrawToolbar <- function(
   map, targetLayerId = NULL, targetGroup = NULL,
-  position = c('topleft', 'topright', 'bottomleft', 'bottomright'),
+  position = c("topleft", "topright", "bottomleft", "bottomright"),
   polylineOptions = drawPolylineOptions(),
   polygonOptions = drawPolygonOptions(),
   circleOptions = drawCircleOptions(),
@@ -76,15 +76,15 @@ addDrawToolbar <- function(
   map$dependencies <- c(map$dependencies, drawDependencies())
 
   markerIconFunction <- NULL
-  if (inherits(markerOptions, 'list') && !is.null(markerOptions$markerIcon)) {
-     if (inherits(markerOptions$markerIcon, 'leaflet_icon')) {
+  if (inherits(markerOptions, "list") && !is.null(markerOptions$markerIcon)) {
+     if (inherits(markerOptions$markerIcon, "leaflet_icon")) {
        markerIconFunction <- defIconFunction
-     } else if (inherits(markerOptions$markerIcon, 'leaflet_awesome_icon')) {
+     } else if (inherits(markerOptions$markerIcon, "leaflet_awesome_icon")) {
        map <- addAwesomeMarkersDependencies(
          map, markerOptions$markerIcon$library)
        markerIconFunction <- awesomeIconFunction
      } else {
-       stop('markerIcon should be created using either leaflet::makeIcon() or leaflet::makeAwesomeIcon()')
+       stop("markerIcon should be created using either leaflet::makeIcon() or leaflet::makeAwesomeIcon()")
      }
     markerOptions$markerIconFunction <- markerIconFunction
   }
@@ -112,5 +112,5 @@ addDrawToolbar <- function(
 #' @rdname draw
 #' @export
 removeDrawToolbar <- function(map, clearFeatures = FALSE) {
-  leaflet::invokeMethod(map, leaflet::getMapData(map), 'removeDrawToolbar', clearFeatures)
+  leaflet::invokeMethod(map, leaflet::getMapData(map), "removeDrawToolbar", clearFeatures)
 }

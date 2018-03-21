@@ -9,7 +9,7 @@ library(leaflet.extras)
 
 #' Nearyly 50K World Airports
 
-fName <- system.file('examples/data/csv/world_airports.csv.zip', package = 'leaflet.extras')
+fName <- system.file("examples/data/csv/world_airports.csv.zip", package = "leaflet.extras")
 
 csv <- readr::read_file(fName)
 
@@ -21,9 +21,9 @@ leaf <- leaflet() %>%
 leaf %>%
   addCSV(
     csv,
-    csvParserOptions('latitude_deg', 'longitude_deg'),
-    markerType = 'circleMarker',
-    stroke = FALSE, fillColor = 'red', fillOpacity = 1,
+    csvParserOptions("latitude_deg", "longitude_deg"),
+    markerType = "circleMarker",
+    stroke = FALSE, fillColor = "red", fillOpacity = 1,
     markerOptions = markerOptions(radius = 0.5))
 
 #' <br/><br/>Same data as a heatmap.
@@ -32,5 +32,5 @@ leaf %>%
 leaf %>%
   addWebGLCSVHeatmap(
     csv,
-    csvParserOptions('latitude_deg', 'longitude_deg'),
-    size = 3, units = 'px')
+    csvParserOptions("latitude_deg", "longitude_deg"),
+    size = 3, units = "px")

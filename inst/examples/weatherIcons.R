@@ -4,9 +4,9 @@ leaflet() %>%
   addTiles() %>%
   addWeatherMarkers(
     lng = -118.456554, lat = 34.078039,
-    label = 'This is a label',
-    icon = makeWeatherIcon(icon = 'hot', iconColor = '#ffffff77',
-                           markerColor = 'blue' ))
+    label = "This is a label",
+    icon = makeWeatherIcon(icon = "hot", iconColor = "#ffffff77",
+                           markerColor = "blue" ))
 
 cities <- read.csv(
   textConnection("
@@ -61,15 +61,15 @@ cities_popups <- purrr::map(
   function(forecast) {
     df <- forecast$currently
     colnames(df) <- tools::toTitleCase(stringr::str_replace_all(
-      colnames(df), '([A-Z])', ' \\1'))
+      colnames(df), "([A-Z])", " \\1"))
     htmlTable::htmlTable(
       t(df),
-      caption = 'Current Forecast',
-      align = 'left',
-      header = c('Value'),
-      rowlabel = 'Variable',
-      align.header = 'left',
-      col.rgroup = c('#ffffff', '#eeeeee'))
+      caption = "Current Forecast",
+      align = "left",
+      header = c("Value"),
+      rowlabel = "Variable",
+      align.header = "left",
+      col.rgroup = c("#ffffff", "#eeeeee"))
   })
 
 leaflet(cities) %>% addProviderTiles(providers$CartoDB.Positron) %>%

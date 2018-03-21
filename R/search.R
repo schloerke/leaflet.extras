@@ -26,7 +26,7 @@ leafletSearchDependencies <- function() {
 #' @param url url for search by ajax request, ex: "search.php?q={s}". Can be function that returns string for dynamic parameter setting.
 #' @param sourceData function that fill _recordsCache, passed searching text by first param and callback in second.
 #' @param jsonpParam jsonp param name for search by jsonp service, ex: "callback".
-#' @param propertyLoc field for remapping location, using array: ['latname','lonname'] for select double fields(ex. ['lat','lon'] ) support dotted format: 'prop.subprop.title'.
+#' @param propertyLoc field for remapping location, using array: ["latname","lonname"] for select double fields(ex. ["lat","lon"] ) support dotted format: "prop.subprop.title".
 #' @param propertyName property in marker.options(or feature.properties for vector layer) trough filter elements in layer,.
 #' @param formatData callback for reformat all data from source to indexed data object.
 #' @param filterData callback for filtering data from text searched, params: textSearch, allRecords.
@@ -49,22 +49,22 @@ leafletSearchDependencies <- function() {
 #' @param textErr 'Location not error message.
 #' @param textCancel title in cancel button.
 #' @param textPlaceholder placeholder value.
-#' @param position 'topleft'.
+#' @param position "topleft".
 #' @param hideMarkerOnCollapse remove circle and marker on search control collapsed.
 #' @rdname search-options
 #' @export
 searchOptions <- function(
-    url = '',
+    url = "",
     sourceData = NULL,
     jsonpParam = NULL,
-    propertyLoc = 'loc',
-    propertyName = 'title',
+    propertyLoc = "loc",
+    propertyName = "title",
     formatData = NULL,
     filterData = NULL,
     moveToLocation = TRUE,
     zoom = 17,
     buildTip = NULL,
-    container = '',
+    container = "",
     minLength = 1,
     initial = TRUE,
     casesensitive = FALSE,
@@ -77,10 +77,10 @@ searchOptions <- function(
     collapsed = TRUE,
     autoCollapse = FALSE,
     autoCollapseTime = 1200,
-    textErr = 'Location Not Found',
-    textCancel = 'Cancel',
-    textPlaceholder = 'Search...',
-    position = 'topleft',
+    textErr = "Location Not Found",
+    textCancel = "Cancel",
+    textPlaceholder = "Search...",
+    position = "topleft",
     hideMarkerOnCollapse = FALSE
 ) {
     leaflet::filterNULL(list(
@@ -130,7 +130,7 @@ addSearchOSM <- function(
   invokeMethod(
     map,
     getMapData(map),
-    'addSearchOSM',
+    "addSearchOSM",
     options
   )
 }
@@ -145,7 +145,7 @@ removeSearchOSM <- function(map) {
   invokeMethod(
     map,
     getMapData(map),
-    'removeSearchOSM'
+    "removeSearchOSM"
   )
 }
 
@@ -172,12 +172,12 @@ addReverseSearchOSM <- function(
   if (displayText == TRUE) {
     map <- map %>%
       addControl("Click anywhere on the map to reverse geocode",
-                 position = "topright", layerId = 'reverseSearchOSM')
+                 position = "topright", layerId = "reverseSearchOSM")
   }
   invokeMethod(
     map,
     getMapData(map),
-    'addReverseSearchOSM',
+    "addReverseSearchOSM",
     list(
       showSearchLocation = showSearchLocation,
       fitBounds = fitBounds,
@@ -219,7 +219,7 @@ addSearchGoogle <- function(
   invokeMethod(
     map,
     getMapData(map),
-    'addSearchGoogle',
+    "addSearchGoogle",
     options
   ) %>%
     htmlwidgets::appendContent(htmltools::tags$script(src = url))
@@ -235,7 +235,7 @@ removeSearchGoogle <- function(map) {
   invokeMethod(
     map,
     getMapData(map),
-    'removeSearchGoogle'
+    "removeSearchGoogle"
   )
 }
 
@@ -261,12 +261,12 @@ addReverseSearchGoogle <- function(
   if (displayText == TRUE) {
     map <- map %>%
       addControl("Click anywhere on the map to reverse geocode",
-                 position = "topright", layerId = 'reverseSearchGoogle')
+                 position = "topright", layerId = "reverseSearchGoogle")
   }
   invokeMethod(
     map,
     getMapData(map),
-    'addReverseSearchGoogle',
+    "addReverseSearchGoogle",
     list(
       showSearchLocation = showSearchLocation,
       fitBounds = fitBounds,
@@ -291,7 +291,7 @@ addSearchUSCensusBureau <- function(
   invokeMethod(
     map,
     getMapData(map),
-    'addSearchUSCensusBureau',
+    "addSearchUSCensusBureau",
     options
   )
 }
@@ -306,7 +306,7 @@ removeSearchUSCensusBureau <- function(map) {
   invokeMethod(
     map,
     getMapData(map),
-    'removeSearchUSCensusBureau'
+    "removeSearchUSCensusBureau"
   )
 }
 
@@ -316,7 +316,7 @@ removeSearchUSCensusBureau <- function(map) {
 #' @rdname search-options
 #' @export
 searchFeaturesOptions <- function(
-    propertyName = 'label',
+    propertyName = "label",
     initial = FALSE,
     openPopup = FALSE,
     ...
@@ -346,7 +346,7 @@ addSearchFeatures <- function(
     invokeMethod(
         map,
         getMapData(map),
-        'addSearchFeatures',
+        "addSearchFeatures",
         targetGroups,
         options
     )
@@ -363,7 +363,7 @@ removeSearchFeatures <- function(map, clearFeatures =FALSE) {
   invokeMethod(
     map,
     getMapData(map),
-    'removeSearchFeatures',
+    "removeSearchFeatures",
     clearFeatures
   )
 }

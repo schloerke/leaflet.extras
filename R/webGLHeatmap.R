@@ -40,7 +40,7 @@ webGLHeatmapDependency <- function() {
 #'   identifier-style names. Any number of layers and even different types of
 #'   layers (e.g. markers and polygons) can share the same group name.
 #' @param size in meters or pixels
-#' @param units either 'm' or 'px'
+#' @param units either "m" or "px"
 #' @param opacity for the canvas element
 #' @param gradientTexture Alternative colors for heatmap.
 #'    allowed values are "skyline", "deep-sea"
@@ -60,8 +60,8 @@ webGLHeatmapDependency <- function() {
 #' # browseURL(system.file("examples/webglHeatmaps.R", package = "leaflet.extras"))
 addWebGLHeatmap = function(
   map, lng = NULL, lat = NULL, intensity = NULL, layerId = NULL, group = NULL,
-  size = '30000',
-  units = 'm',
+  size = "30000",
+  units = "m",
   opacity = 1,
   gradientTexture = NULL,
   alphaRange = 1,
@@ -72,7 +72,7 @@ addWebGLHeatmap = function(
 
   if (!is.null(gradientTexture) &&
      !gradientTexture %in% c("skyline", "deep-sea")) {
-    stop("Only allowed values for gradientTexture are 'skyline' and 'deep-sea'")
+    stop("Only allowed values for gradientTexture are \"skyline\" and \"deep-sea\"")
   }
 
   pts = leaflet::derivePoints(
@@ -81,14 +81,14 @@ addWebGLHeatmap = function(
   if (is.null(intensity)) {
     points <- cbind(pts$lat, pts$lng)
   } else {
-    if (inherits(intensity, 'formula')) {
+    if (inherits(intensity, "formula")) {
       intensity <- eval(intensity[[2]], data, environment(intensity))
     }
     points <- cbind(pts$lat, pts$lng, intensity)
   }
 
   leaflet::invokeMethod(
-    map, data, 'addWebGLHeatmap', points,
+    map, data, "addWebGLHeatmap", points,
     layerId, group,
     leaflet::filterNULL(list(
       size = size,
@@ -103,7 +103,7 @@ addWebGLHeatmap = function(
 #' Adds a heatmap with data from a GeoJSON/TopoJSON file/url
 #' @param geojson The geojson or topojson url or contents as string.
 #' @param intensityProperty The property to use for determining the intensity at a point.
-#' Can be a 'string' or a JS function, or NULL.
+#' Can be a "string" or a JS function, or NULL.
 #' @rdname webglheatmap
 #' @export
 #' @examples
@@ -131,8 +131,8 @@ addWebGLHeatmap = function(
 addWebGLGeoJSONHeatmap = function(
   map, geojson, layerId = NULL, group = NULL,
   intensityProperty = NULL,
-  size = '30000',
-  units = 'm',
+  size = "30000",
+  units = "m",
   opacity = 1,
   gradientTexture = NULL,
   alphaRange = 1
@@ -142,7 +142,7 @@ addWebGLGeoJSONHeatmap = function(
 
   leaflet::invokeMethod(
     map, leaflet::getMapData(map),
-    'addWebGLGeoJSONHeatmap', geojson, intensityProperty,
+    "addWebGLGeoJSONHeatmap", geojson, intensityProperty,
     layerId, group,
     leaflet::filterNULL(list(
       size = size,
@@ -176,8 +176,8 @@ addWebGLGeoJSONHeatmap = function(
 addWebGLKMLHeatmap = function(
   map, kml, layerId = NULL, group = NULL,
   intensityProperty = NULL,
-  size = '30000',
-  units = 'm',
+  size = "30000",
+  units = "m",
   opacity = 1,
   gradientTexture = NULL,
   alphaRange = 1
@@ -187,7 +187,7 @@ addWebGLKMLHeatmap = function(
 
   leaflet::invokeMethod(
     map, leaflet::getMapData(map),
-    'addWebGLKMLHeatmap', kml, intensityProperty,
+    "addWebGLKMLHeatmap", kml, intensityProperty,
     layerId, group,
     leaflet::filterNULL(list(
       size = size,
@@ -221,8 +221,8 @@ addWebGLKMLHeatmap = function(
 addWebGLCSVHeatmap = function(
   map, csv, csvParserOptions, layerId = NULL, group = NULL,
   intensityProperty = NULL,
-  size = '30000',
-  units = 'm',
+  size = "30000",
+  units = "m",
   opacity = 1,
   gradientTexture = NULL,
   alphaRange = 1
@@ -232,7 +232,7 @@ addWebGLCSVHeatmap = function(
 
   leaflet::invokeMethod(
     map, leaflet::getMapData(map),
-    'addWebGLCSVHeatmap', csv, intensityProperty,
+    "addWebGLCSVHeatmap", csv, intensityProperty,
     layerId, group,
     leaflet::filterNULL(list(
       size = size,
@@ -281,8 +281,8 @@ addWebGLCSVHeatmap = function(
 addWebGLGPXHeatmap = function(
   map, gpx, layerId = NULL, group = NULL,
   intensityProperty = NULL,
-  size = '30000',
-  units = 'm',
+  size = "30000",
+  units = "m",
   opacity = 1,
   gradientTexture = NULL,
   alphaRange = 1
@@ -292,7 +292,7 @@ addWebGLGPXHeatmap = function(
 
   leaflet::invokeMethod(
     map, leaflet::getMapData(map),
-    'addWebGLGPXHeatmap', gpx, intensityProperty,
+    "addWebGLGPXHeatmap", gpx, intensityProperty,
     layerId, group,
     leaflet::filterNULL(list(
       size = size,
@@ -308,12 +308,12 @@ addWebGLGPXHeatmap = function(
 #' @rdname webglheatmap
 #' @export
 removeWebGLHeatmap = function(map, layerId) {
-    leaflet::invokeMethod(map, leaflet::getMapData(map), 'removeWebGLHeatmap', layerId)
+    leaflet::invokeMethod(map, leaflet::getMapData(map), "removeWebGLHeatmap", layerId)
 }
 
 #' clears the webgl heatmap
 #' @rdname webglheatmap
 #' @export
 clearWebGLHeatmap = function(map) {
-    leaflet::invokeMethod(map, NULL, 'clearWebGLHeatmap')
+    leaflet::invokeMethod(map, NULL, "clearWebGLHeatmap")
 }

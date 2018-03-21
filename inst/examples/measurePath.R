@@ -3,7 +3,7 @@ library(leaflet.extras)
 
 #' ### Add shapes with measurements enabled
 
-fName <- 'https://rawgit.com/benbalter/dc-maps/master/maps/ward-2012.geojson'
+fName <- "https://rawgit.com/benbalter/dc-maps/master/maps/ward-2012.geojson"
 
 geoJson <- readr::read_file(fName)
 
@@ -12,15 +12,15 @@ leaflet() %>% addTiles() %>% setView(-77.0369, 38.9072, 11) %>%
   enableMeasurePath() %>%
   addGeoJSONChoropleth(
     geoJson,
-    valueProperty = 'AREASQMI',
-    scale = c('white', 'red'), mode = 'q', steps = 4, padding = c(0.2, 0),
-    labelProperty = 'NAME',
+    valueProperty = "AREASQMI",
+    scale = c("white", "red"), mode = "q", steps = 4, padding = c(0.2, 0),
+    labelProperty = "NAME",
     popupProperty = propstoHTMLTable(
-      props = c('NAME', 'AREASQMI', 'REP_NAME', 'WEB_URL', 'REP_PHONE', 'REP_EMAIL', 'REP_OFFICE'),
-      table.attrs = list(class = 'table table-striped table-bordered'), drop.na = T),
-    color = '#ffffff', weight = 1, fillOpacity = 0.7,
+      props = c("NAME", "AREASQMI", "REP_NAME", "WEB_URL", "REP_PHONE", "REP_EMAIL", "REP_OFFICE"),
+      table.attrs = list(class = "table table-striped table-bordered"), drop.na = T),
+    color = "#ffffff", weight = 1, fillOpacity = 0.7,
     highlightOptions = highlightOptions(
-      weight = 2, color = '#000000',
+      weight = 2, color = "#000000",
       fillOpacity = 1, opacity = 1,
       bringToFront = TRUE, sendToBack = TRUE),
     pathOptions = pathOptions(
@@ -34,15 +34,15 @@ leaflet() %>% addTiles() %>% setView(-77.0369, 38.9072, 11) %>%
   addBootstrapDependency() %>%
   addGeoJSONChoropleth(
     geoJson,
-    valueProperty = 'AREASQMI',
-    scale = c('white', 'red'), mode = 'q', steps = 4, padding = c(0.2, 0),
-    labelProperty = 'NAME',
+    valueProperty = "AREASQMI",
+    scale = c("white", "red"), mode = "q", steps = 4, padding = c(0.2, 0),
+    labelProperty = "NAME",
     popupProperty = propstoHTMLTable(
-      props = c('NAME', 'AREASQMI', 'REP_NAME', 'WEB_URL', 'REP_PHONE', 'REP_EMAIL', 'REP_OFFICE'),
-      table.attrs = list(class = 'table table-striped table-bordered'), drop.na = T),
-    color = '#ffffff', weight = 1, fillOpacity = 0.7,
+      props = c("NAME", "AREASQMI", "REP_NAME", "WEB_URL", "REP_PHONE", "REP_EMAIL", "REP_OFFICE"),
+      table.attrs = list(class = "table table-striped table-bordered"), drop.na = T),
+    color = "#ffffff", weight = 1, fillOpacity = 0.7,
     highlightOptions = highlightOptions(
-      weight = 2, color = '#000000',
+      weight = 2, color = "#000000",
       fillOpacity = 1, opacity = 1,
       bringToFront = TRUE, sendToBack = TRUE)) %>%
   addMeasurePathToolbar(options = measurePathOptions(imperial = TRUE, showDistances = FALSE))
@@ -61,11 +61,11 @@ model <- spTransform(model, "+init=epsg:4326")
 
 #+ fig.width=10, fig.height=8
 leaflet() %>% addTiles() %>%
-  addPolygons(data = model, group = 'model') %>%
-  addDrawToolbar(targetGroup = 'model',
+  addPolygons(data = model, group = "model") %>%
+  addDrawToolbar(targetGroup = "model",
     editOptions = editToolbarOptions(
       selectedPathOptions = selectedPathOptions())) %>%
-  addLayersControl(overlayGroups = c('model'), options =
+  addLayersControl(overlayGroups = c("model"), options =
                      layersControlOptions(collapsed = FALSE)) %>%
   addMeasurePathToolbar(options =
                           measurePathOptions(imperial = TRUE,
