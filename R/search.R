@@ -110,7 +110,7 @@ searchOptions <- function(
         textErr=textErr,
         textCancel=textCancel,
         textPlaceholder=textPlaceholder,
-	position=position,
+        position=position,
         hideMarkerOnCollapse=hideMarkerOnCollapse
     ))
 }

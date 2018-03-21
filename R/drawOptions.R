@@ -17,7 +17,7 @@
 #' @export
 drawShapeOptions <- function(
   stroke = TRUE,
-  color	= '#03f',
+  color = '#03f',
   weight = 1,
   opacity = 1,
   fill = TRUE,

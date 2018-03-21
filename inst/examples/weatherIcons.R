@@ -1,6 +1,6 @@
 library(leaflet.extras)
 
-leaflet() %>% 
+leaflet() %>%
   addTiles() %>%
   addWeatherMarkers(
     lng=-118.456554, lat=34.078039,
@@ -33,14 +33,17 @@ iconMap = list(
 )
 
 
-cities.forecast <- purrr::map2(
+cities_forecast <- purrr::map2(
   cities$Lat, cities$Long,
-  function(lat, long) { darksky::get_current_forecast(lat,long)})
+  function(lat, long) {
+    darksky::get_current_forecast(lat,long)
+  }
+)
 
-cities.icons <- weatherIcons(
-  icon=as.character(iconMap[purrr::map_chr(cities.forecast, ~ .$currently$icon)]),
+cities_icons <- weatherIcons(
+  icon=as.character(iconMap[purrr::map_chr(cities_forecast, ~ .$currently$icon)]),
   markerColor=purrr::map_chr(
-    cities.forecast,
+    cities_forecast,
     function(forecast){
       temp <- forecast$currently$temperature
       if(temp<60) {
@@ -53,8 +56,8 @@ cities.icons <- weatherIcons(
     })
 )
 
-cities.popups <- purrr::map(
-  cities.forecast,
+cities_popups <- purrr::map(
+  cities_forecast,
   function(forecast) {
     df <- forecast$currently
     colnames(df) <- tools::toTitleCase(stringr::str_replace_all(
@@ -72,5 +75,5 @@ cities.popups <- purrr::map(
 leaflet(cities) %>% addProviderTiles(providers$CartoDB.Positron) %>%
   addWeatherMarkers(lng = ~Long, lat = ~Lat,
                     label = ~City,
-                    icon = cities.icons,
-                    popup = cities.popups)
+                    icon = cities_icons,
+                    popup = cities_popups)

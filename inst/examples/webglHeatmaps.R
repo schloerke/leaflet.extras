@@ -68,12 +68,12 @@ leaflet(df) %>%
 
 #' <br/><br/>
 
-london.crimes.files <- Sys.glob(
+london_crimes_files <- Sys.glob(
   paste0(system.file('examples/data/London-Crimes', package='leaflet.extras'),
          '/*/*-city-of-london-street.csv.zip'))
-london.crimes <- suppressMessages(
+london_crimes <- suppressMessages(
   purrr::map(
-    london.crimes.files,
+    london_crimes_files,
     ~readr::read_csv(.) %>%
       dplyr::select(Latitude, Longitude) %>%
       dplyr::filter(!is.na(Latitude))) %>%
@@ -85,11 +85,11 @@ leaf <- leaflet() %>%
   addProviderTiles(providers$CartoDB.Positron)
 
 purrr::walk(
-  names(london.crimes),
+  names(london_crimes),
   function(month) {
     leaf <<- leaf %>%
       addWebGLHeatmap(
-        data = london.crimes[[month]],
+        data = london_crimes[[month]],
         layerId = month, group = month,
         lng=~Longitude, lat=~Latitude,size=40,units='px',
         gradientTexture = 'skyline'
@@ -99,6 +99,6 @@ purrr::walk(
 leaf %>%
   setView(-0.094106, 51.515, 14) %>%
   addLayersControl(
-    baseGroups = names(london.crimes),
+    baseGroups = names(london_crimes),
     options = layersControlOptions(collapsed = FALSE)
   )
