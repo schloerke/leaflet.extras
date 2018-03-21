@@ -19,3 +19,5 @@
 ^CONDUCT\.md$
 ^node_modules
 ^package.*\.json
+^revdep
+^viztest
