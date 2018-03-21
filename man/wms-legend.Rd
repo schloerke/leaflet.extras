@@ -32,12 +32,22 @@ leaflet(
   )
 ) \%>\%
   addWMSTiles(
-    baseUrl = "http://maps.kartoza.com/cgi-bin/qgis_mapserv.fcgi?map=/web/Boosmansbos/Boosmansbos.qgs",
+    baseUrl = paste0(
+      "http://maps.kartoza.com/cgi-bin/qgis_mapserv.fcgi?",
+      "map=/web/Boosmansbos/Boosmansbos.qgs"
+    ),
     layers = "Boosmansbos",
     options = WMSTileOptions(format = "image/png", transparent = TRUE),
-    attribution = "(c)<a href= "http://kartoza.com">Kartoza.com</a> and <a href= "http://www.ngi.gov.za/">SA-NGI</a>"
+    attribution = paste0(
+      "(c)<a href= \\"http://kartoza.com\\">Kartoza.com</a> and ",
+      "<a href= \\"http://www.ngi.gov.za/\\">SA-NGI</a>"
+    )
   ) \%>\%
   addWMSLegend(
-    uri = "http://maps.kartoza.com/cgi-bin/qgis_mapserv.fcgi?map=/web/Boosmansbos/Boosmansbos.qgs&&SERVICE=WMS&VERSION=1.3.0&SLD_VERSION=1.1.0&REQUEST=GetLegendGraphic&FORMAT=image/jpeg&LAYER=Boosmansbos&STYLE="
+    uri = paste0(
+      "http://maps.kartoza.com/cgi-bin/qgis_mapserv.fcgi?",
+      "map=/web/Boosmansbos/Boosmansbos.qgs&&SERVICE=WMS&VERSION=1.3.0",
+      "&SLD_VERSION=1.1.0&REQUEST=GetLegendGraphic&FORMAT=image/jpeg&LAYER=Boosmansbos&STYLE="
+    )
   )
 }
