@@ -21,3 +21,6 @@
 ^package.*\.json
 ^revdep
 ^viztest
+^\.lintr$
+^scripts
+^webpack\.config\.js
