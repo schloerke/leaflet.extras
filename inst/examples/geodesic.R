@@ -15,7 +15,7 @@ hammerfest <- c(70.67, 23.68)
 barrow <- c(71.29, -156.76)
 
 df <- as.data.frame(rbind(hammerfest, calgary, losangeles, santiago, capetown, tokio, barrow))
-names(df) <- c('lat','lng')
+names(df) <- c('lat', 'lng')
 
 library(leaflet.extras)
 library(sp)
@@ -26,7 +26,7 @@ leaflet(df) %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
   addGeodesicPolylines(lng = ~lng, lat = ~lat, weight = 2, color = 'red',
                        steps = 50, opacity = 1) %>%
-  addCircleMarkers(df,lat = ~lat,lng = ~lng, radius = 3, stroke = F, fillColor = 'black', fillOpacity = 1)
+  addCircleMarkers(df, lat = ~lat, lng = ~lng, radius = 3, stroke = F, fillColor = 'black', fillOpacity = 1)
 
 #' ### Example 2
 
@@ -49,7 +49,7 @@ pts <- structure(list(x = c(71, 114.3, 96.4, 70.3, 51.4, 31.7, 38.2,
 
 leaflet() %>% addProviderTiles(providers$Esri.NatGeoWorldMap) %>%
   addPolylines(data = as(tr, "SpatialLinesDataFrame"), color = trcol) %>%
-  addGeodesicPolylines(lng = pts$x, lat = pts$y,weight = 2, color = c('black')) %>%
+  addGeodesicPolylines(lng = pts$x, lat = pts$y, weight = 2, color = c('black')) %>%
   addCircles(pts$x, pts$y, color = 'black')
 
 #' <br/><br/>Same thing as above in a polar projection.<br/>
@@ -83,5 +83,5 @@ leaflet(options = leafletOptions(
 #' ### Great Circle
 leaflet(df) %>% addProviderTiles(providers$CartoDB.Positron) %>%
   addGreatCircles(radius = 2000000, steps = 100, group = 'circle')  %>%
-  setView(0,35,1) %>%
+  setView(0, 35, 1) %>%
   addLayersControl(overlayGroups = c('circle'))

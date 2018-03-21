@@ -1,7 +1,7 @@
 omnivoreDependencies <- function() {
   # list(
   #   htmltools::htmlDependency(
-  #     "leaflet.extras-omnivore",version = "0.1.0",
+  #     "leaflet.extras-omnivore", version = "0.1.0",
   #     system.file("htmlwidgets/lib/omnivore", package = "leaflet.extras"),
   #     script = c("topojson.js", "toGeoJSON.js", "wellknown.js",
   #                "polyline.js", "csv2geojson.js",
@@ -28,7 +28,7 @@ omnivoreDependencies <- function() {
 geoJSONChoroplethDependency <- function() {
   # list(
   #   htmltools::htmlDependency(
-  #     "geojson-choropleth",version = "1.1.2",
+  #     "geojson-choropleth", version = "1.1.2",
   #     system.file("htmlwidgets/lib/geojson-choropleth", package = "leaflet.extras"),
   #     script = c("choropleth.js")
   #   )
@@ -81,16 +81,16 @@ invokeJSAddMethod <- function(
 
   markerIconFunction <- NULL
   if (!is.null(markerIcons)) {
-     if (inherits(markerIcons,'leaflet_icon_set') ||
+     if (inherits(markerIcons, 'leaflet_icon_set') ||
         inherits(markerIcons, 'leaflet_icon')) {
        markerIconFunction <- defIconFunction
-     } else if (inherits(markerIcons,'leaflet_awesome_icon_set') ||
+     } else if (inherits(markerIcons, 'leaflet_awesome_icon_set') ||
                inherits(markerIcons, 'leaflet_awesome_icon')) {
-       if (inherits(markerIcons,'leaflet_awesome_icon_set')) {
-         libs <- unique(sapply(markerIcons,function(icon) icon$library))
-         map <- addAwesomeMarkersDependencies(map,libs)
+       if (inherits(markerIcons, 'leaflet_awesome_icon_set')) {
+         libs <- unique(sapply(markerIcons, function(icon) icon$library))
+         map <- addAwesomeMarkersDependencies(map, libs)
        } else {
-         map <- addAwesomeMarkersDependencies(map,markerIcons$library)
+         map <- addAwesomeMarkersDependencies(map, markerIcons$library)
        }
        markerIconFunction <- awesomeIconFunction
      } else {
@@ -289,10 +289,10 @@ legendOptions <- function(
 #'   addGeoJSONChoropleth(
 #'     geoJson,
 #'     valueProperty = 'AREASQMI',
-#'     scale = c('white','red'),
+#'     scale = c('white', 'red'),
 #'     mode = 'q',
 #'     steps = 4,
-#'     padding = c(0.2,0),
+#'     padding = c(0.2, 0),
 #'     labelProperty = 'NAME',
 #'     popupProperty = propstoHTMLTable(
 #'       props = c('NAME', 'AREASQMI', 'REP_NAME', 'WEB_URL', 'REP_PHONE', 'REP_EMAIL', 'REP_OFFICE'),
@@ -320,7 +320,7 @@ addGeoJSONChoropleth = function(
   valueProperty,
   labelProperty = NULL, labelOptions = leaflet::labelOptions(),
   popupProperty = NULL, popupOptions = leaflet::popupOptions(),
-  scale = c('white','red'),
+  scale = c('white', 'red'),
   steps =5,
   mode = 'q',
   channelMode = c('rgb', 'lab', 'hsl', 'lch'),
@@ -458,7 +458,7 @@ addKML = function(
 #'       }'
 #'     ),
 #'     scale = 'OrRd', mode='q', steps = 5,
-#'     padding = c(0.2,0),
+#'     padding = c(0.2, 0),
 #'     popupProperty = 'description',
 #'     labelProperty = 'NAME',
 #'     color = '#ffffff', weight = 1, fillOpacity = 1,
@@ -481,7 +481,7 @@ addKMLChoropleth = function(
   valueProperty,
   labelProperty = NULL, labelOptions = leaflet::labelOptions(),
   popupProperty = NULL, popupOptions = leaflet::popupOptions(),
-  scale = c('white','red'),
+  scale = c('white', 'red'),
   steps =5,
   mode = 'q',
   channelMode = c('rgb', 'lab', 'hsl', 'lch'),
@@ -567,7 +567,7 @@ csvParserOptions <- function(
 #'   addProviderTiles(providers$CartoDB.DarkMatterNoLabels) %>%
 #'   addCSV(
 #'     csv,
-#'     csvParserOptions('latitude_deg','longitude_deg'),
+#'     csvParserOptions('latitude_deg', 'longitude_deg'),
 #'     markerType = 'circleMarker',
 #'     stroke = FALSE, fillColor = 'red', fillOpacity = 1,
 #'     markerOptions = markerOptions(radius = 0.5))

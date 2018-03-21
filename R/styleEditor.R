@@ -1,7 +1,7 @@
 styleEditorDependencies <- function() {
   # list(
   #   htmltools::htmlDependency(
-  #     "style-editor",version = "0.1.6",
+  #     "style-editor", version = "0.1.6",
   #     system.file("htmlwidgets/lib/style-editor", package = "leaflet.extras"),
   #     script = c('Leaflet.StyleEditor.min.js', 'styleEditor-bindings.js'),
   #     stylesheet = c('Leaflet.StyleEditor.min.css')
@@ -36,7 +36,7 @@ styleEditorDependencies <- function() {
 #'   addStyleEditor()
 addStyleEditor <- function(
   map,
-  position = c('topleft','topright','bottomleft','bottomright'),
+  position = c('topleft', 'topright', 'bottomleft', 'bottomright'),
   openOnLeafletDraw = TRUE, useGrouping = FALSE,
   ...) {
 

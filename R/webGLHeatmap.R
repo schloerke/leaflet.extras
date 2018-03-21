@@ -3,7 +3,7 @@
 webGLHeatmapDependency <- function() {
   # list(
   #   htmltools::htmlDependency(
-  #     "webgl-heatmap",version = "0.1.0",
+  #     "webgl-heatmap", version = "0.1.0",
   #     system.file("htmlwidgets/lib/webgl-heatmap", package = "leaflet.extras"),
   #     script = c("webgl-heatmap.js", "webgl-heatmap-leaflet.js",
   #                "webgl-heatmap-bindings.js"),
@@ -81,7 +81,7 @@ addWebGLHeatmap = function(
   if (is.null(intensity)) {
     points <- cbind(pts$lat, pts$lng)
   } else {
-    if (inherits(intensity,'formula')) {
+    if (inherits(intensity, 'formula')) {
       intensity <- eval(intensity[[2]], data, environment(intensity))
     }
     points <- cbind(pts$lat, pts$lng, intensity)
@@ -211,11 +211,11 @@ addWebGLKMLHeatmap = function(
 #' )
 #'
 #' leaflet() %>%
-#'   setView(0,0, 2) %>%
+#'   setView(0, 0, 2) %>%
 #'   addProviderTiles(providers$CartoDB.DarkMatterNoLabels) %>%
 #'   addWebGLCSVHeatmap(
 #'     csv,
-#'     csvParserOptions("latitude_deg","longitude_deg"),
+#'     csvParserOptions("latitude_deg", "longitude_deg"),
 #'     size = 10, units="px")
 #'
 addWebGLCSVHeatmap = function(

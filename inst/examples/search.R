@@ -38,7 +38,7 @@ Providence,41.8236,-71.4222,177994
 
 leaflet(cities) %>% addProviderTiles(providers$OpenStreetMap) %>%
   addCircleMarkers(lng = ~Long, lat = ~Lat, weight = 1, fillOpacity=0.5,
-             radius = ~sqrt(Pop)/50 , popup = ~City, label=~City, group ='cities') %>%
+             radius = ~sqrt(Pop)/50, popup = ~City, label=~City, group ='cities') %>%
   addResetMapButton() %>%
   addSearchFeatures(
     targetGroups = 'cities',
@@ -79,7 +79,7 @@ leaflet() %>% addProviderTiles(providers$Esri.WorldStreetMap) %>%
     jsonlite::toJSON(geoJson),
     labelProperty='name',
     popupProperty = propstoHTMLTable(
-      table.attrs = list(class='table table-striped table-bordered'),drop.na = T),
+      table.attrs = list(class='table table-striped table-bordered'), drop.na = T),
     markerIcons = icons, markerIconProperty = 'amenity',
     markerOptions = markerOptions(riseOnHover = TRUE, opacity = 0.75),
     clusterOptions = markerClusterOptions(),
@@ -133,11 +133,11 @@ leaf.world %>%
       JS("function(feature) {
            return feature.properties.POP2005/Math.max(feature.properties.AREA,1);
          }"),
-    scale = c('#ffc77fff','#000000ff'), mode='q', steps = 5,
+    scale = c('#ffc77fff', '#000000ff'), mode='q', steps = 5,
     # Select the data attributes to show in the popup.
     popupProperty = propstoHTMLTable(
       props = c('NAME', 'REGION', 'ISO_3_CODE', 'ISO_2_CODE', 'AREA', 'POP2005'),
-      table.attrs = list(class='table table-striped table-bordered'),drop.na = T),
+      table.attrs = list(class='table table-striped table-bordered'), drop.na = T),
     labelProperty = 'NAME',
     color='#ffffff', weight=1, fillOpacity = 0.9,
     highlightOptions = highlightOptions(

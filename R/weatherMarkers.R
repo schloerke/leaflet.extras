@@ -3,7 +3,7 @@
 weatherIconDependency <- function() {
   # list(
   #   htmltools::htmlDependency(
-  #     "leaflet-icon-weather",version = "3.0.0",
+  #     "leaflet-icon-weather", version = "3.0.0",
   #     system.file("htmlwidgets/lib/weather-markers", package = "leaflet.extras"),
   #     script = c("leaflet.weather-markers.min.js", "plugin-weatherMarkers-bindings.js"),
   #     stylesheet =c("weather-icons.min.css", "weather-icons-wind.min.css",
@@ -102,7 +102,7 @@ makeWeatherIcon <- function(
 ) {
 
   if (!markerColor %in% markerColors) {
-    stop(sprintf("markerColor should be one of %s",paste(markerColors,collapse=', ')))
+    stop(sprintf("markerColor should be one of %s", paste(markerColors, collapse=', ')))
   }
 
   icon = leaflet::filterNULL(list(
@@ -140,7 +140,7 @@ weatherIcons <- function(
 ) {
 
   if (!any(markerColor %in% markerColors)) {
-    stop(sprintf("markerColor should be one of %s",paste(markerColors,collapse=', ')))
+    stop(sprintf("markerColor should be one of %s", paste(markerColors, collapse=', ')))
   }
 
   leaflet::filterNULL(list(

@@ -13,11 +13,11 @@ leaflet() %>% addTiles() %>% setView(-77.0369, 38.9072, 11) %>%
   addGeoJSONChoropleth(
     geoJson,
     valueProperty = 'AREASQMI',
-    scale = c('white','red'), mode='q', steps = 4, padding = c(0.2,0),
+    scale = c('white', 'red'), mode='q', steps = 4, padding = c(0.2, 0),
     labelProperty='NAME',
     popupProperty=propstoHTMLTable(
       props = c('NAME', 'AREASQMI', 'REP_NAME', 'WEB_URL', 'REP_PHONE', 'REP_EMAIL', 'REP_OFFICE'),
-      table.attrs = list(class='table table-striped table-bordered'),drop.na = T),
+      table.attrs = list(class='table table-striped table-bordered'), drop.na = T),
     color='#ffffff', weight=1, fillOpacity = 0.7,
     highlightOptions = highlightOptions(
       weight=2, color='#000000',
@@ -35,11 +35,11 @@ leaflet() %>% addTiles() %>% setView(-77.0369, 38.9072, 11) %>%
   addGeoJSONChoropleth(
     geoJson,
     valueProperty = 'AREASQMI',
-    scale = c('white','red'), mode='q', steps = 4, padding = c(0.2,0),
+    scale = c('white', 'red'), mode='q', steps = 4, padding = c(0.2, 0),
     labelProperty='NAME',
     popupProperty=propstoHTMLTable(
       props = c('NAME', 'AREASQMI', 'REP_NAME', 'WEB_URL', 'REP_PHONE', 'REP_EMAIL', 'REP_OFFICE'),
-      table.attrs = list(class='table table-striped table-bordered'),drop.na = T),
+      table.attrs = list(class='table table-striped table-bordered'), drop.na = T),
     color='#ffffff', weight=1, fillOpacity = 0.7,
     highlightOptions = highlightOptions(
       weight=2, color='#000000',

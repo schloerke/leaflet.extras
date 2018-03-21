@@ -12,7 +12,7 @@ server <- function(input, output, session) {
           position = 'topleft'))
   })
 
-  observeEvent(input$leafmap_search_location_found,{
+  observeEvent(input$leafmap_search_location_found, {
     print("Location Found")
     print(input$leafmap_search_location_found)
   })

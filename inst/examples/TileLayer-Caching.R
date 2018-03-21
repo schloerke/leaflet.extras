@@ -11,7 +11,7 @@ leaflet() %>%
 #' This is just some fancy javascript to show you caching in progress.
 #' Open Developer Console, and see log messages for cache hit/miss.<br/><br/>
 
-leaflet() %>% setView(0,0,2)  %>%
+leaflet() %>% setView(0, 0, 2)  %>%
   enableTileCaching() %>%
   addTiles(options=tileOptions(useCache=TRUE, crossOrigin=TRUE),
            layerId = 'tile1') %>%

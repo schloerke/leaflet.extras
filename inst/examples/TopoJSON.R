@@ -17,7 +17,7 @@ leaflet() %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
   setView(-98.583333, 39.833333, 4) %>%
   addWebGLGeoJSONHeatmap(
-    topoJson, size = 20 , units = 'px') %>%
+    topoJson, size = 20, units = 'px') %>%
   addGeoJSONv2(
     topoJson,
     markerType = 'circleMarker',
@@ -39,10 +39,10 @@ leaflet() %>%
     topoJson,
     valueProperty ='incidents',
     scale = 'OrRd', mode='q', steps = 5,
-    padding = c(0.2,0),
+    padding = c(0.2, 0),
     popupProperty = propstoHTMLTable(
       props = c('dist_numc', 'location', 'incidents', '_feature_id_string'),
-      table.attrs = list(class='table table-striped table-bordered'),drop.na = T),
+      table.attrs = list(class='table table-striped table-bordered'), drop.na = T),
     labelProperty = JS('function(feature){return "WARD: " + feature.properties.dist_numc;}'),
     color='#ffffff', weight=1, fillOpacity = 0.7,
     highlightOptions =
@@ -55,11 +55,11 @@ leaflet() %>%
   addGeoJSONChoropleth(
     fName,
     valueProperty ='incidents',
-    scale = c('yellow','red', 'black'), mode='q', steps = 5,
+    scale = c('yellow', 'red', 'black'), mode='q', steps = 5,
     bezierInterpolate = TRUE,
     popupProperty = propstoHTMLTable(
       props = c('dist_numc', 'location', 'incidents', '_feature_id_string'),
-      table.attrs = list(class='table table-striped table-bordered'),drop.na = T),
+      table.attrs = list(class='table table-striped table-bordered'), drop.na = T),
     labelProperty = JS('function(feature){return "WARD: " + feature.properties.dist_numc;}'),
     color='#ffffff', weight=1, fillOpacity = 0.7,
     highlightOptions =
@@ -69,4 +69,4 @@ leaflet() %>%
       legendOptions(title='Crimes', position='bottomright'),
     group = 'yellow-black'
   ) %>%
-  addLayersControl(baseGroups = c('orange-red','yellow-black'))
+  addLayersControl(baseGroups = c('orange-red', 'yellow-black'))

@@ -26,11 +26,11 @@ awesomeIconFunction <-
 #' @export
 #' @rdname utils
 propsToHTML <- function(props, elem=NULL, elem.attrs=NULL) {
-  if (!(inherits(props,'list') || (class(props) == 'character')) ||  length(props)<1 ) {
+  if (!(inherits(props, 'list') || (class(props) == 'character')) ||  length(props)<1 ) {
     stop("props needs to to be a list/vector of character strings with at least one element")
   }
   if (!is.null(elem.attrs) &&
-     (!inherits(elem.attrs,'list') ||
+     (!inherits(elem.attrs, 'list') ||
       length(elem.attrs)<1 ||
       is.null(names(elem.attrs)))) {
     stop("If elem.attrs is provided, then it needs to be a named list with atleast one element")
@@ -42,17 +42,17 @@ propsToHTML <- function(props, elem=NULL, elem.attrs=NULL) {
               elem,
               if (!is.null(elem.attrs))
                 paste(sapply(names(elem.attrs),
-                             function(attr) sprintf(' %s="%s"',attr,elem.attrs[[attr]])),collapse=" ")
+                             function(attr) sprintf(' %s="%s"', attr, elem.attrs[[attr]])), collapse=" ")
               else
                 '' )
     else
       '',
     if (length(props)>1)
-      paste(stringr::str_replace(props,'(.*)','{\\1}'),collapse=', ')
+      paste(stringr::str_replace(props, '(.*)', '{\\1}'), collapse=', ')
     else
       props,
     if (!is.null(elem) && !elem == '')
-      sprintf('</%s>',elem)
+      sprintf('</%s>', elem)
     else
       ''
     ))
@@ -65,7 +65,7 @@ propsToHTML <- function(props, elem=NULL, elem.attrs=NULL) {
 #' @rdname utils
 propstoHTMLTable <- function(props = NULL, table.attrs=NULL, drop.na = TRUE) {
   if (!is.null(table.attrs) &&
-     (!inherits(table.attrs,'list') ||
+     (!inherits(table.attrs, 'list') ||
       length(table.attrs)<1 ||
       is.null(names(table.attrs)))) {
     stop("If table.attrs is provided, then it needs to be a named list with at least one element")
@@ -81,9 +81,9 @@ propstoHTMLTable <- function(props = NULL, table.attrs=NULL, drop.na = TRUE) {
        }",
       if (!is.null(table.attrs))
         paste(sapply(names(table.attrs),
-                     function(attr) sprintf(' %s="%s"',attr,table.attrs[[attr]])),collapse=" ")
+                     function(attr) sprintf(' %s="%s"', attr, table.attrs[[attr]])), collapse=" ")
       else '',
-      paste(stringr::str_replace(props,'(.*)','<tr><td><b>\\1</b></td><td>{\\1}</td></tr>'),collapse='')
+      paste(stringr::str_replace(props, '(.*)', '<tr><td><b>\\1</b></td><td>{\\1}</td></tr>'), collapse='')
     ))
   else
    JS(sprintf(
@@ -102,7 +102,7 @@ propstoHTMLTable <- function(props = NULL, table.attrs=NULL, drop.na = TRUE) {
           })(feature.properties) + '</tbody></table>';}",
      if (!is.null(table.attrs))
        paste(sapply(names(table.attrs),
-                    function(attr) sprintf(' %s="%s"',attr,table.attrs[[attr]])),collapse=" ")
+                    function(attr) sprintf(' %s="%s"', attr, table.attrs[[attr]])), collapse=" ")
      else '',
      if (drop.na) "false" else "true"
     ))

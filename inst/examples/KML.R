@@ -46,7 +46,7 @@ leaflet() %>%
          return 100*awater/(awater+aland);
       }'),
     scale = 'OrRd', mode='q', steps = 5,
-    padding = c(0.2,0),
+    padding = c(0.2, 0),
     popupProperty = 'description',
     labelProperty = 'NAME',
     color='#ffffff', weight=1, fillOpacity = 1,

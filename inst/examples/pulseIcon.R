@@ -18,15 +18,15 @@ City,Lat,Long,Pop
                                   Providence,41.8236,-71.4222,177994"))
 
 library(dplyr)
-cities <- cities %>% mutate(PopCat=ifelse(Pop <500000,'blue','red'))
+cities <- cities %>% mutate(PopCat=ifelse(Pop <500000, 'blue', 'red'))
 
 leaflet(cities) %>% addTiles() %>%
   addPulseMarkers(lng = ~Long, lat = ~Lat,
                     label = ~City,
                     icon = makePulseIcon())
 
-icon.pop <- pulseIcons(color = ifelse(cities$Pop <500000,'blue','red'),
-                       heartbeat = ifelse(cities$Pop<500000,'0.8','0.4'))
+icon.pop <- pulseIcons(color = ifelse(cities$Pop <500000, 'blue', 'red'),
+                       heartbeat = ifelse(cities$Pop<500000, '0.8', '0.4'))
 
 leaflet(cities) %>% addTiles() %>%
   addPulseMarkers(lng = ~Long, lat = ~Lat,
@@ -43,5 +43,5 @@ popIcons <- pulseIconList(
 leaflet(cities) %>% addTiles() %>%
   addPulseMarkers(lng = ~Long, lat = ~Lat,
                     label = ~City,
-                    labelOptions = rep(labelOptions(noHide = T),nrow(cities)),
+                    labelOptions = rep(labelOptions(noHide = T), nrow(cities)),
                     icon = ~popIcons[PopCat] )

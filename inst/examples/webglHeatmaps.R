@@ -36,7 +36,7 @@ leaflet(spdf) %>%
 #'
 leaflet(spdf) %>%
   addProviderTiles(providers$Thunderforest.TransportDark) %>%
-  addWebGLHeatmap(size=25,units='px')
+  addWebGLHeatmap(size=25, units='px')
 
 #' <br/><br/>10,000 points
 #'
@@ -57,14 +57,14 @@ df <- data.frame(v8$get('addressPoints'), stringsAsFactors = F) %>%
 #'
 leaflet(df) %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
-  addWebGLHeatmap(lng=~lng, lat=~lat,size=1000)
+  addWebGLHeatmap(lng=~lng, lat=~lat, size=1000)
 
 #' <br/><br/>Size in Pixels
 #'
 #'
 leaflet(df) %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
-  addWebGLHeatmap(lng=~lng, lat=~lat,size=20,units='px')
+  addWebGLHeatmap(lng=~lng, lat=~lat, size=20, units='px')
 
 #' <br/><br/>
 
@@ -91,7 +91,7 @@ purrr::walk(
       addWebGLHeatmap(
         data = london_crimes[[month]],
         layerId = month, group = month,
-        lng=~Longitude, lat=~Latitude,size=40,units='px',
+        lng=~Longitude, lat=~Latitude, size=40, units='px',
         gradientTexture = 'skyline'
         )
   })

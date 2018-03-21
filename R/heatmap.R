@@ -3,7 +3,7 @@
 heatmapDependency <- function() {
   # list(
   #   htmltools::htmlDependency(
-  #     "Leaflet.heat",version = "0.1.0",
+  #     "Leaflet.heat", version = "0.1.0",
   #     system.file("htmlwidgets/lib/heat", package = "leaflet.extras"),
   #     script = c("leaflet-heat.js", "heat-bindings.js")
   #   )
@@ -82,7 +82,7 @@ addHeatmap = function(
   if (is.null(intensity)) {
     points <- cbind(pts$lat, pts$lng)
   } else {
-    if (inherits(intensity,'formula')) {
+    if (inherits(intensity, 'formula')) {
       intensity <- eval(intensity[[2]], data, environment(intensity))
     }
     points <- cbind(pts$lat, pts$lng, intensity)

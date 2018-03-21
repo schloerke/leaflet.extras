@@ -38,11 +38,11 @@ geoJson$features$properties <-
         caption='Ward Details',
         align='left',
         align.header='left',
-        col.rgroup=c('#ffffff','#eeeeee')),~as.character(.))
+        col.rgroup=c('#ffffff', '#eeeeee')), ~as.character(.))
     result
   })
 
-geoJson$features$properties$style = purrr::map(factpal(geoJson$features$properties$NAME),~list(fillColor=., color=.))
+geoJson$features$properties$style = purrr::map(factpal(geoJson$features$properties$NAME), ~list(fillColor=., color=.))
 
 leaf %>% setView(-77.0369, 38.9072, 11) %>%
   addGeoJSONv2(
@@ -84,10 +84,10 @@ leaf.world <- leaflet(
 
 geoJson$features$properties$POP_DENSITY <-
   as.numeric(geoJson$features$properties$POP2005) /
-    max(as.numeric(geoJson$features$properties$AREA),1)
+    max(as.numeric(geoJson$features$properties$AREA), 1)
 
 pal <- colorNumeric(
-  colormap::colormap(colormap::colormaps$copper,nshades = 256, reverse = TRUE),
+  colormap::colormap(colormap::colormaps$copper, nshades = 256, reverse = TRUE),
   geoJson$features$properties$POP_DENSITY)
 
 # Generate one HTML Table per feature with all properties of a feature.
@@ -101,11 +101,11 @@ geoJson$features$properties <-
         caption='Ward Details',
         align='left',
         align.header='left',
-        col.rgroup=c('#ffffff','#eeeeee')),~as.character(.))
+        col.rgroup=c('#ffffff', '#eeeeee')), ~as.character(.))
     result
   })
 
-geoJson$features$properties$style = purrr::map(pal(geoJson$features$properties$POP_DENSITY),~list(fillColor=.))
+geoJson$features$properties$style = purrr::map(pal(geoJson$features$properties$POP_DENSITY), ~list(fillColor=.))
 
 leaf.world %>%
   addGeoJSONv2(
@@ -138,11 +138,11 @@ leaf.world %>%
       JS("function(feature) {
            return feature.properties.POP2005/Math.max(feature.properties.AREA,1);
          }"),
-    scale = c('#ffc77fff','#000000ff'), mode='q', steps = 5,
+    scale = c('#ffc77fff', '#000000ff'), mode='q', steps = 5,
     # Select the data attributes to show in the popup.
     popupProperty = propstoHTMLTable(
       props = c('NAME', 'REGION', 'ISO_3_CODE', 'ISO_2_CODE', 'AREA', 'POP2005'),
-      table.attrs = list(class='table table-striped table-bordered'),drop.na = T),
+      table.attrs = list(class='table table-striped table-bordered'), drop.na = T),
     labelProperty = 'NAME',
     color='#ffffff', weight=1, fillOpacity = 0.9,
     highlightOptions = highlightOptions(
@@ -164,11 +164,11 @@ leaf %>% setView(-77.0369, 38.9072, 11) %>%
   addGeoJSONChoropleth(
     geoJson,
     valueProperty = 'AREASQMI',
-    scale = c('white','red'), mode='q', steps = 4, padding = c(0.2,0),
+    scale = c('white', 'red'), mode='q', steps = 4, padding = c(0.2, 0),
     labelProperty='NAME',
     popupProperty=propstoHTMLTable(
       props = c('NAME', 'AREASQMI', 'REP_NAME', 'WEB_URL', 'REP_PHONE', 'REP_EMAIL', 'REP_OFFICE'),
-      table.attrs = list(class='table table-striped table-bordered'),drop.na = T),
+      table.attrs = list(class='table table-striped table-bordered'), drop.na = T),
     color='#ffffff', weight=1, fillOpacity = 0.7,
     highlightOptions = highlightOptions(
       weight=2, color='#000000',
@@ -179,12 +179,12 @@ leaf %>% setView(-77.0369, 38.9072, 11) %>%
   addGeoJSONChoropleth(
     geoJson,
     valueProperty = 'AREASQMI',
-    scale = c('yellow','red', 'black'), mode='q', steps = 4,
+    scale = c('yellow', 'red', 'black'), mode='q', steps = 4,
     bezierInterpolate = TRUE,
     labelProperty='NAME',
     popupProperty=propstoHTMLTable(
       props = c('NAME', 'AREASQMI', 'REP_NAME', 'WEB_URL', 'REP_PHONE', 'REP_EMAIL', 'REP_OFFICE'),
-      table.attrs = list(class='table table-striped table-bordered'),drop.na = T),
+      table.attrs = list(class='table table-striped table-bordered'), drop.na = T),
     color='#ffffff', weight=1, fillOpacity = 0.7,
     highlightOptions = highlightOptions(
       weight=2, color='#000000',
@@ -193,7 +193,7 @@ leaf %>% setView(-77.0369, 38.9072, 11) %>%
     legendOptions = legendOptions(title='Area in Sq. Miles'),
     group = 'yellow-black'
   ) %>%
-  addLayersControl(baseGroups = c('reds','yellow-black'),
+  addLayersControl(baseGroups = c('reds', 'yellow-black'),
                    options = layersControlOptions(collapsed=FALSE))
 
 #' ## Plot Points
@@ -263,7 +263,7 @@ geoJson <- readr::read_file(fName)
 leaflet() %>% setView(-77.0369, 38.9072, 12) %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
   addWebGLGeoJSONHeatmap(
-    geoJson, size = 30 , units = 'px'
+    geoJson, size = 30, units = 'px'
     ) %>%
   addGeoJSONv2(
     geoJson,

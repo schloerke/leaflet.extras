@@ -36,7 +36,7 @@ iconMap = list(
 cities_forecast <- purrr::map2(
   cities$Lat, cities$Long,
   function(lat, long) {
-    darksky::get_current_forecast(lat,long)
+    darksky::get_current_forecast(lat, long)
   }
 )
 
@@ -61,7 +61,7 @@ cities_popups <- purrr::map(
   function(forecast) {
     df <- forecast$currently
     colnames(df) <- tools::toTitleCase(stringr::str_replace_all(
-      colnames(df), '([A-Z])',' \\1'))
+      colnames(df), '([A-Z])', ' \\1'))
     htmlTable::htmlTable(
       t(df),
       caption='Current Forecast',
@@ -69,7 +69,7 @@ cities_popups <- purrr::map(
       header=c('Value'),
       rowlabel='Variable',
       align.header='left',
-      col.rgroup=c('#ffffff','#eeeeee'))
+      col.rgroup=c('#ffffff', '#eeeeee'))
   })
 
 leaflet(cities) %>% addProviderTiles(providers$CartoDB.Positron) %>%
