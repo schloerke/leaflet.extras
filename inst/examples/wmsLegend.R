@@ -3,9 +3,9 @@ library(leaflet.extras)
 leaflet(
   options = leafletOptions(
     center = c(-33.95293, 20.82824),
-    zoom= 14,
-    minZoom= 5,
-    maxZoom= 18,
+    zoom = 14,
+    minZoom = 5,
+    maxZoom = 18,
     maxBounds = list(
       c(-33.91444, 20.75351),
       c(-33.98731, 20.90626)

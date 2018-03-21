@@ -14,14 +14,14 @@ leaflet() %>%
   addWebGLGPXHeatmap(airports, size = 20000, group = 'airports', opacity = 0.9) %>%
   addGPX(airports,
          markerType = 'circleMarker',
-         stroke=FALSE, fillColor='black', fillOpacity = 1,
-         markerOptions = markerOptions(radius=1.5),
+         stroke = FALSE, fillColor = 'black', fillOpacity = 1,
+         markerOptions = markerOptions(radius = 1.5),
          group = 'airports') %>%
   addWebGLGPXHeatmap(towns, size = 15000, group = 'towns', opacity = 0.9) %>%
   addGPX(towns,
          markerType = 'circleMarker',
-         stroke=FALSE, fillColor='black', fillOpacity = 1,
-         markerOptions = markerOptions(radius=1.5),
+         stroke = FALSE, fillColor = 'black', fillOpacity = 1,
+         markerOptions = markerOptions(radius = 1.5),
          group = 'towns') %>%
   addLayersControl( baseGroups = c('airports', 'towns'),
                     options = layersControlOptions(collapsed = FALSE))

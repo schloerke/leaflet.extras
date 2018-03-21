@@ -10,7 +10,7 @@ leafletSearchDependencies <- function() {
   #   htmltools::htmlDependency(
   #     "fuse",
   #     "3.0.5",
-  #     system.file("htmlwidgets/lib/fuse", package="leaflet.extras"),
+  #     system.file("htmlwidgets/lib/fuse", package = "leaflet.extras"),
   #     script = c("fuse.js")
   #   ))
   list(
@@ -54,64 +54,64 @@ leafletSearchDependencies <- function() {
 #' @rdname search-options
 #' @export
 searchOptions <- function(
-    url='',
-    sourceData=NULL,
-    jsonpParam=NULL,
-    propertyLoc='loc',
-    propertyName='title',
-    formatData=NULL,
-    filterData=NULL,
-    moveToLocation=TRUE,
-    zoom=17,
-    buildTip=NULL,
-    container='',
-    minLength=1,
-    initial=TRUE,
-    casesensitive=FALSE,
-    autoType=TRUE,
-    delayType=400,
-    tooltipLimit=-1,
-    tipAutoSubmit=TRUE,
-    firstTipSubmit=FALSE,
-    autoResize=TRUE,
-    collapsed=TRUE,
-    autoCollapse=FALSE,
-    autoCollapseTime=1200,
-    textErr='Location Not Found',
-    textCancel='Cancel',
-    textPlaceholder='Search...',
-    position='topleft',
-    hideMarkerOnCollapse=FALSE
+    url = '',
+    sourceData = NULL,
+    jsonpParam = NULL,
+    propertyLoc = 'loc',
+    propertyName = 'title',
+    formatData = NULL,
+    filterData = NULL,
+    moveToLocation = TRUE,
+    zoom = 17,
+    buildTip = NULL,
+    container = '',
+    minLength = 1,
+    initial = TRUE,
+    casesensitive = FALSE,
+    autoType = TRUE,
+    delayType = 400,
+    tooltipLimit = -1,
+    tipAutoSubmit = TRUE,
+    firstTipSubmit = FALSE,
+    autoResize = TRUE,
+    collapsed = TRUE,
+    autoCollapse = FALSE,
+    autoCollapseTime = 1200,
+    textErr = 'Location Not Found',
+    textCancel = 'Cancel',
+    textPlaceholder = 'Search...',
+    position = 'topleft',
+    hideMarkerOnCollapse = FALSE
 ) {
     leaflet::filterNULL(list(
-        url=url,
-        sourceData=sourceData,
-        jsonpParam=jsonpParam,
-        propertyLoc=propertyLoc,
-        propertyName=propertyName,
-        formatData=formatData,
-        filterData=filterData,
-        moveToLocation=moveToLocation,
-        zoom=zoom,
-        buildTip=buildTip,
-        container=container,
-        minLength=minLength,
-        initial=initial,
-        casesensitive=casesensitive,
-        autoType=autoType,
-        delayType=delayType,
-        tooltipLimit=tooltipLimit,
-        tipAutoSubmit=tipAutoSubmit,
-        firstTipSubmit=firstTipSubmit,
-        autoResize=autoResize,
-        collapsed=collapsed,
-        autoCollapse=autoCollapse,
-        autoCollapseTime=autoCollapseTime,
-        textErr=textErr,
-        textCancel=textCancel,
-        textPlaceholder=textPlaceholder,
-        position=position,
-        hideMarkerOnCollapse=hideMarkerOnCollapse
+        url = url,
+        sourceData = sourceData,
+        jsonpParam = jsonpParam,
+        propertyLoc = propertyLoc,
+        propertyName = propertyName,
+        formatData = formatData,
+        filterData = filterData,
+        moveToLocation = moveToLocation,
+        zoom = zoom,
+        buildTip = buildTip,
+        container = container,
+        minLength = minLength,
+        initial = initial,
+        casesensitive = casesensitive,
+        autoType = autoType,
+        delayType = delayType,
+        tooltipLimit = tooltipLimit,
+        tipAutoSubmit = tipAutoSubmit,
+        firstTipSubmit = firstTipSubmit,
+        autoResize = autoResize,
+        collapsed = collapsed,
+        autoCollapse = autoCollapse,
+        autoCollapseTime = autoCollapseTime,
+        textErr = textErr,
+        textCancel = textCancel,
+        textPlaceholder = textPlaceholder,
+        position = position,
+        hideMarkerOnCollapse = hideMarkerOnCollapse
     ))
 }
 
@@ -172,7 +172,7 @@ addReverseSearchOSM <- function(
   if (displayText == TRUE) {
     map <- map %>%
       addControl("Click anywhere on the map to reverse geocode",
-                 position="topright", layerId = 'reverseSearchOSM')
+                 position = "topright", layerId = 'reverseSearchOSM')
   }
   invokeMethod(
     map,
@@ -222,7 +222,7 @@ addSearchGoogle <- function(
     'addSearchGoogle',
     options
   ) %>%
-    htmlwidgets::appendContent(htmltools::tags$script(src=url))
+    htmlwidgets::appendContent(htmltools::tags$script(src = url))
 }
 
 #' Removes the Google search control from the map.
@@ -261,7 +261,7 @@ addReverseSearchGoogle <- function(
   if (displayText == TRUE) {
     map <- map %>%
       addControl("Click anywhere on the map to reverse geocode",
-                 position="topright", layerId = 'reverseSearchGoogle')
+                 position = "topright", layerId = 'reverseSearchGoogle')
   }
   invokeMethod(
     map,
@@ -275,7 +275,7 @@ addReverseSearchGoogle <- function(
     ),
     group
   ) %>%
-    htmlwidgets::appendContent(htmltools::tags$script(src=url))
+    htmlwidgets::appendContent(htmltools::tags$script(src = url))
 }
 
 #' Add a US Census Bureau search control to the map.
@@ -358,7 +358,7 @@ addSearchFeatures <- function(
 #' @return modified map
 #' @rdname search-features
 #' @export
-removeSearchFeatures <- function(map, clearFeatures=FALSE) {
+removeSearchFeatures <- function(map, clearFeatures =FALSE) {
   map$dependencies <- c(map$dependencies, leafletSearchDependencies())
   invokeMethod(
     map,

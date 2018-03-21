@@ -6,7 +6,7 @@ weatherIconDependency <- function() {
   #     "leaflet-icon-weather", version = "3.0.0",
   #     system.file("htmlwidgets/lib/weather-markers", package = "leaflet.extras"),
   #     script = c("leaflet.weather-markers.min.js", "plugin-weatherMarkers-bindings.js"),
-  #     stylesheet =c("weather-icons.min.css", "weather-icons-wind.min.css",
+  #     stylesheet = c("weather-icons.min.css", "weather-icons-wind.min.css",
   #                   "leaflet.weather-markers.css" )
   #     )
   # )
@@ -89,20 +89,20 @@ weatherIconSetToWeatherIcons = function(x) {
 #' @rdname weatherMarkers
 makeWeatherIcon <- function(
   icon,
-  markerColor= 'red',
-  iconColor= 'white',
-  #iconSize= c(35, 45),
-  #iconAnchor=   c(17, 42),
-  #popupAnchor= c(1, -32),
-  #shadowAnchor= c(10, 12),
-  #shadowSize= c(36, 16),
-  #className= 'weather-marker',
-  #prefix= 'wi',
-  extraClasses= NULL
+  markerColor = 'red',
+  iconColor = 'white',
+  #iconSize = c(35, 45),
+  #iconAnchor =   c(17, 42),
+  #popupAnchor = c(1, -32),
+  #shadowAnchor = c(10, 12),
+  #shadowSize = c(36, 16),
+  #className = 'weather-marker',
+  #prefix = 'wi',
+  extraClasses = NULL
 ) {
 
   if (!markerColor %in% markerColors) {
-    stop(sprintf("markerColor should be one of %s", paste(markerColors, collapse=', ')))
+    stop(sprintf("markerColor should be one of %s", paste(markerColors, collapse = ', ')))
   }
 
   icon = leaflet::filterNULL(list(
@@ -127,20 +127,20 @@ makeWeatherIcon <- function(
 #' @rdname weatherMarkers
 weatherIcons <- function(
   icon,
-  markerColor= 'red',
-  iconColor= 'white',
-  #iconSize= c(35, 45),
-  #iconAnchor=   c(17, 42),
-  #popupAnchor= c(1, -32),
-  #shadowAnchor= c(10, 12),
-  #shadowSize= c(36, 16),
-  #className= 'weather-marker',
-  #prefix= 'wi',
-  extraClasses= NULL
+  markerColor = 'red',
+  iconColor = 'white',
+  #iconSize = c(35, 45),
+  #iconAnchor =   c(17, 42),
+  #popupAnchor = c(1, -32),
+  #shadowAnchor = c(10, 12),
+  #shadowSize = c(36, 16),
+  #className = 'weather-marker',
+  #prefix = 'wi',
+  extraClasses = NULL
 ) {
 
   if (!any(markerColor %in% markerColors)) {
-    stop(sprintf("markerColor should be one of %s", paste(markerColors, collapse=', ')))
+    stop(sprintf("markerColor should be one of %s", paste(markerColors, collapse = ', ')))
   }
 
   leaflet::filterNULL(list(

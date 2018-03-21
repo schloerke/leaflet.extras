@@ -198,13 +198,13 @@ drawCircleMarkerOptions <- function(
 #' @rdname draw-options
 #' @export
 selectedPathOptions <- function(
-  dashArray= c('10, 10'),
+  dashArray = c('10, 10'),
   weight = 2,
   color = 'black',
-  fill= TRUE,
-  fillColor= 'black',
-  fillOpacity= 0.6,
-  maintainColor= FALSE
+  fill = TRUE,
+  fillColor = 'black',
+  fillOpacity = 0.6,
+  maintainColor = FALSE
 ) {
   leaflet::filterNULL(list(
     dashArray = dashArray,

@@ -122,7 +122,7 @@ addWebGLHeatmap = function(
 #'     geoJson,
 #'     markerType = "circleMarker",
 #'     stroke = FALSE, fillColor = "black", fillOpacity = 0.7,
-#'     markerOptions = markerOptions(radius=2)
+#'     markerOptions = markerOptions(radius = 2)
 #'   )
 #'
 #' ## for more examples see
@@ -169,8 +169,8 @@ addWebGLGeoJSONHeatmap = function(
 #'   addKML(
 #'     kml,
 #'     markerType = "circleMarker",
-#'     stroke=FALSE, fillColor="black", fillOpacity = 1,
-#'     markerOptions = markerOptions(radius=1))
+#'     stroke = FALSE, fillColor = "black", fillOpacity = 1,
+#'     markerOptions = markerOptions(radius = 1))
 #'
 #'
 addWebGLKMLHeatmap = function(
@@ -216,7 +216,7 @@ addWebGLKMLHeatmap = function(
 #'   addWebGLCSVHeatmap(
 #'     csv,
 #'     csvParserOptions("latitude_deg", "longitude_deg"),
-#'     size = 10, units="px")
+#'     size = 10, units = "px")
 #'
 addWebGLCSVHeatmap = function(
   map, csv, csvParserOptions, layerId = NULL, group = NULL,
@@ -270,8 +270,8 @@ addWebGLCSVHeatmap = function(
 #'   addGPX(
 #'     airports,
 #'     markerType = "circleMarker",
-#'     stroke=FALSE, fillColor = "black", fillOpacity = 1,
-#'     markerOptions = markerOptions(radius=1.5),
+#'     stroke = FALSE, fillColor = "black", fillOpacity = 1,
+#'     markerOptions = markerOptions(radius = 1.5),
 #'     group = "airports"
 #'   )
 #'

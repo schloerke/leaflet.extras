@@ -321,7 +321,7 @@ addGeoJSONChoropleth = function(
   labelProperty = NULL, labelOptions = leaflet::labelOptions(),
   popupProperty = NULL, popupOptions = leaflet::popupOptions(),
   scale = c('white', 'red'),
-  steps =5,
+  steps = 5,
   mode = 'q',
   channelMode = c('rgb', 'lab', 'hsl', 'lch'),
   padding = NULL,
@@ -346,24 +346,24 @@ addGeoJSONChoropleth = function(
 
   channelMode <- match.arg(channelMode)
 
-  pathOptions =c(pathOptions, list(
-    valueProperty=valueProperty,
-    scale=scale,
-    steps=steps,
-    mode=mode,
-    channelMode=channelMode,
-    padding=padding,
-    correctLightness=correctLightness,
-    bezierInterpolate=bezierInterpolate,
-    colors=colors,
-    stroke=stroke,
-    color=color,
-    weight=weight,
-    opacity=opacity,
-    fillOpacity=fillOpacity,
-    dashArray=dashArray,
-    smoothFactor=smoothFactor,
-    noClip=noClip
+  pathOptions = c(pathOptions, list(
+    valueProperty = valueProperty,
+    scale = scale,
+    steps = steps,
+    mode = mode,
+    channelMode = channelMode,
+    padding = padding,
+    correctLightness = correctLightness,
+    bezierInterpolate = bezierInterpolate,
+    colors = colors,
+    stroke = stroke,
+    color = color,
+    weight = weight,
+    opacity = opacity,
+    fillOpacity = fillOpacity,
+    dashArray = dashArray,
+    smoothFactor = smoothFactor,
+    noClip = noClip
   ))
   leaflet::invokeMethod(
     map, leaflet::getMapData(map), 'addGeoJSONChoropleth',
@@ -457,13 +457,13 @@ addKML = function(
 #'          return 100*awater/(awater+aland);
 #'       }'
 #'     ),
-#'     scale = 'OrRd', mode='q', steps = 5,
+#'     scale = 'OrRd', mode = 'q', steps = 5,
 #'     padding = c(0.2, 0),
 #'     popupProperty = 'description',
 #'     labelProperty = 'NAME',
 #'     color = '#ffffff', weight = 1, fillOpacity = 1,
 #'     highlightOptions = highlightOptions(
-#'       fillOpacity = 1, weight = 2, opacity=1, color = '#000000',
+#'       fillOpacity = 1, weight = 2, opacity = 1, color = '#000000',
 #'       bringToFront = TRUE, sendToBack = TRUE
 #'     ),
 #'     legendOptions = legendOptions(
@@ -482,7 +482,7 @@ addKMLChoropleth = function(
   labelProperty = NULL, labelOptions = leaflet::labelOptions(),
   popupProperty = NULL, popupOptions = leaflet::popupOptions(),
   scale = c('white', 'red'),
-  steps =5,
+  steps = 5,
   mode = 'q',
   channelMode = c('rgb', 'lab', 'hsl', 'lch'),
   padding = NULL,
@@ -505,24 +505,24 @@ addKMLChoropleth = function(
   map$dependencies <- c(map$dependencies,
                         geoJSONChoroplethDependency())
   channelMode <- match.arg(channelMode)
-  pathOptions =c(pathOptions, list(
-    valueProperty=valueProperty,
-    scale=scale,
-    steps=steps,
-    mode=mode,
-    channelMode=channelMode,
-    padding=padding,
-    correctLightness=correctLightness,
-    bezierInterpolate=bezierInterpolate,
-    colors=colors,
-    stroke=stroke,
-    color=color,
-    weight=weight,
-    opacity=opacity,
-    fillOpacity=fillOpacity,
-    dashArray=dashArray,
-    smoothFactor=smoothFactor,
-    noClip=noClip
+  pathOptions = c(pathOptions, list(
+    valueProperty = valueProperty,
+    scale = scale,
+    steps = steps,
+    mode = mode,
+    channelMode = channelMode,
+    padding = padding,
+    correctLightness = correctLightness,
+    bezierInterpolate = bezierInterpolate,
+    colors = colors,
+    stroke = stroke,
+    color = color,
+    weight = weight,
+    opacity = opacity,
+    fillOpacity = fillOpacity,
+    dashArray = dashArray,
+    smoothFactor = smoothFactor,
+    noClip = noClip
   ))
   leaflet::invokeMethod(
     map, leaflet::getMapData(map), 'addKMLChoropleth',

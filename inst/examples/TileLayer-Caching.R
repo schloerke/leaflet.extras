@@ -5,7 +5,7 @@ library(leaflet.extras)
 #+ eval=FALSE
 leaflet() %>%
   enableTileCaching() %>%
-  addTiles(options=tileOptions(useCache=TRUE, crossOrigin=TRUE))
+  addTiles(options = tileOptions(useCache = TRUE, crossOrigin = TRUE))
 
 #' ### With Console Debugging
 #' This is just some fancy javascript to show you caching in progress.
@@ -13,7 +13,7 @@ leaflet() %>%
 
 leaflet() %>% setView(0, 0, 2)  %>%
   enableTileCaching() %>%
-  addTiles(options=tileOptions(useCache=TRUE, crossOrigin=TRUE),
+  addTiles(options = tileOptions(useCache = TRUE, crossOrigin = TRUE),
            layerId = 'tile1') %>%
   htmlwidgets::onRender(
     "function(el,t){

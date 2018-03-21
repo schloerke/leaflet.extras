@@ -21,8 +21,8 @@ leaflet() %>%
   addGeoJSONv2(
     topoJson,
     markerType = 'circleMarker',
-    stroke=FALSE, fillColor='black', fillOpacity = 1,
-    markerOptions = markerOptions(radius=1))
+    stroke = FALSE, fillColor = 'black', fillOpacity = 1,
+    markerOptions = markerOptions(radius = 1))
 
 #' ## Shape Data
 
@@ -37,36 +37,36 @@ leaflet() %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
   addGeoJSONChoropleth(
     topoJson,
-    valueProperty ='incidents',
-    scale = 'OrRd', mode='q', steps = 5,
+    valueProperty = 'incidents',
+    scale = 'OrRd', mode = 'q', steps = 5,
     padding = c(0.2, 0),
     popupProperty = propstoHTMLTable(
       props = c('dist_numc', 'location', 'incidents', '_feature_id_string'),
-      table.attrs = list(class='table table-striped table-bordered'), drop.na = T),
+      table.attrs = list(class = 'table table-striped table-bordered'), drop.na = T),
     labelProperty = JS('function(feature){return "WARD: " + feature.properties.dist_numc;}'),
-    color='#ffffff', weight=1, fillOpacity = 0.7,
+    color = '#ffffff', weight = 1, fillOpacity = 0.7,
     highlightOptions =
-      highlightOptions(fillOpacity=1, weight=2, opacity=1, color='#000000',
-                        bringToFront=TRUE, sendToBack = TRUE),
+      highlightOptions(fillOpacity = 1, weight = 2, opacity = 1, color = '#000000',
+                        bringToFront = TRUE, sendToBack = TRUE),
     legendOptions =
-      legendOptions(title='Crimes', position='bottomright'),
+      legendOptions(title = 'Crimes', position = 'bottomright'),
     group = 'orange-red'
   ) %>%
   addGeoJSONChoropleth(
     fName,
-    valueProperty ='incidents',
-    scale = c('yellow', 'red', 'black'), mode='q', steps = 5,
+    valueProperty = 'incidents',
+    scale = c('yellow', 'red', 'black'), mode = 'q', steps = 5,
     bezierInterpolate = TRUE,
     popupProperty = propstoHTMLTable(
       props = c('dist_numc', 'location', 'incidents', '_feature_id_string'),
-      table.attrs = list(class='table table-striped table-bordered'), drop.na = T),
+      table.attrs = list(class = 'table table-striped table-bordered'), drop.na = T),
     labelProperty = JS('function(feature){return "WARD: " + feature.properties.dist_numc;}'),
-    color='#ffffff', weight=1, fillOpacity = 0.7,
+    color = '#ffffff', weight = 1, fillOpacity = 0.7,
     highlightOptions =
-      highlightOptions(fillOpacity=1, weight=2, opacity=1, color='#ff00ff',
-                        bringToFront=TRUE, sendToBack = TRUE),
+      highlightOptions(fillOpacity = 1, weight = 2, opacity = 1, color = '#ff00ff',
+                        bringToFront = TRUE, sendToBack = TRUE),
     legendOptions =
-      legendOptions(title='Crimes', position='bottomright'),
+      legendOptions(title = 'Crimes', position = 'bottomright'),
     group = 'yellow-black'
   ) %>%
   addLayersControl(baseGroups = c('orange-red', 'yellow-black'))

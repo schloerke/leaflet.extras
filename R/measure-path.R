@@ -91,9 +91,9 @@ addMeasurePathToolbar <- function(
     easyButton(
     states = list(
       easyButtonState(
-        stateName='disabled-measurement',
-        icon='ion-ios-flask-outline',
-        title='Enable Measurements',
+        stateName = 'disabled-measurement',
+        icon = 'ion-ios-flask-outline',
+        title = 'Enable Measurements',
         onClick = JS("
           function(btn, map) {
              LeafletWidget.methods.enableMeasurements.call(map);
@@ -102,9 +102,9 @@ addMeasurePathToolbar <- function(
           }")
       ),
       easyButtonState(
-        stateName='enabled-measurement',
-        icon='ion-ios-flask',
-        title='Disable Measurements',
+        stateName = 'enabled-measurement',
+        icon = 'ion-ios-flask',
+        title = 'Disable Measurements',
         onClick = JS("
           function(btn, map) {
              LeafletWidget.methods.disableMeasurements.call(map);
@@ -114,8 +114,8 @@ addMeasurePathToolbar <- function(
     )
   ),
   easyButton(
-      icon='ion-android-refresh', title='Recalculate Measurements',
-      onClick=JS("function(btn, map){ LeafletWidget.methods.refreshMeasurements.call(map); }"))
+      icon = 'ion-android-refresh', title = 'Recalculate Measurements',
+      onClick = JS("function(btn, map){ LeafletWidget.methods.refreshMeasurements.call(map); }"))
   )
   invokeMethod(map, leaflet::getMapData(map), 'setMeasurementOptions', options)
 }

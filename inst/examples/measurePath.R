@@ -13,18 +13,18 @@ leaflet() %>% addTiles() %>% setView(-77.0369, 38.9072, 11) %>%
   addGeoJSONChoropleth(
     geoJson,
     valueProperty = 'AREASQMI',
-    scale = c('white', 'red'), mode='q', steps = 4, padding = c(0.2, 0),
-    labelProperty='NAME',
-    popupProperty=propstoHTMLTable(
+    scale = c('white', 'red'), mode = 'q', steps = 4, padding = c(0.2, 0),
+    labelProperty = 'NAME',
+    popupProperty = propstoHTMLTable(
       props = c('NAME', 'AREASQMI', 'REP_NAME', 'WEB_URL', 'REP_PHONE', 'REP_EMAIL', 'REP_OFFICE'),
-      table.attrs = list(class='table table-striped table-bordered'), drop.na = T),
-    color='#ffffff', weight=1, fillOpacity = 0.7,
+      table.attrs = list(class = 'table table-striped table-bordered'), drop.na = T),
+    color = '#ffffff', weight = 1, fillOpacity = 0.7,
     highlightOptions = highlightOptions(
-      weight=2, color='#000000',
-      fillOpacity=1, opacity =1,
-      bringToFront=TRUE, sendToBack=TRUE),
+      weight = 2, color = '#000000',
+      fillOpacity = 1, opacity = 1,
+      bringToFront = TRUE, sendToBack = TRUE),
     pathOptions = pathOptions(
-      showMeasurements=TRUE,
+      showMeasurements = TRUE,
       measurementOptions = measurePathOptions(imperial = TRUE)))
 
 
@@ -35,16 +35,16 @@ leaflet() %>% addTiles() %>% setView(-77.0369, 38.9072, 11) %>%
   addGeoJSONChoropleth(
     geoJson,
     valueProperty = 'AREASQMI',
-    scale = c('white', 'red'), mode='q', steps = 4, padding = c(0.2, 0),
-    labelProperty='NAME',
-    popupProperty=propstoHTMLTable(
+    scale = c('white', 'red'), mode = 'q', steps = 4, padding = c(0.2, 0),
+    labelProperty = 'NAME',
+    popupProperty = propstoHTMLTable(
       props = c('NAME', 'AREASQMI', 'REP_NAME', 'WEB_URL', 'REP_PHONE', 'REP_EMAIL', 'REP_OFFICE'),
-      table.attrs = list(class='table table-striped table-bordered'), drop.na = T),
-    color='#ffffff', weight=1, fillOpacity = 0.7,
+      table.attrs = list(class = 'table table-striped table-bordered'), drop.na = T),
+    color = '#ffffff', weight = 1, fillOpacity = 0.7,
     highlightOptions = highlightOptions(
-      weight=2, color='#000000',
-      fillOpacity=1, opacity =1,
-      bringToFront=TRUE, sendToBack=TRUE)) %>%
+      weight = 2, color = '#000000',
+      fillOpacity = 1, opacity = 1,
+      bringToFront = TRUE, sendToBack = TRUE)) %>%
   addMeasurePathToolbar(options = measurePathOptions(imperial = TRUE, showDistances = FALSE))
 
 #' ### With Draw
@@ -66,7 +66,7 @@ leaflet() %>% addTiles() %>%
     editOptions = editToolbarOptions(
       selectedPathOptions = selectedPathOptions())) %>%
   addLayersControl(overlayGroups = c('model'), options =
-                     layersControlOptions(collapsed=FALSE)) %>%
+                     layersControlOptions(collapsed = FALSE)) %>%
   addMeasurePathToolbar(options =
                           measurePathOptions(imperial = TRUE,
                                              minPixelDistance = 100,

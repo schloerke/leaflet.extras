@@ -50,13 +50,13 @@ df <- data.frame(v8$get('addressPoints'), stringsAsFactors = F) %>%
 #'
 leaflet(df) %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
-  addHeatmap(lng=~lng, lat=~lat,
+  addHeatmap(lng = ~lng, lat = ~lat,
              blur = 20, max = 0.05, radius = 15 )
 
 #' <br/><br/>
 
 london_crimes_files <- Sys.glob(
-  paste0(system.file('examples/data/London-Crimes', package='leaflet.extras'),
+  paste0(system.file('examples/data/London-Crimes', package = 'leaflet.extras'),
          '/*/*-city-of-london-street.csv.zip'))
 london_crimes <- suppressMessages(
   purrr::map(
@@ -65,7 +65,7 @@ london_crimes <- suppressMessages(
       dplyr::select(Latitude, Longitude) %>%
       dplyr::filter(!is.na(Latitude))) %>%
   magrittr::set_names(basename(Sys.glob(
-    paste0(system.file('examples/data/London-Crimes', package='leaflet.extras'),
+    paste0(system.file('examples/data/London-Crimes', package = 'leaflet.extras'),
            '/2016*')))))
 
 leaf <- leaflet() %>%
@@ -78,7 +78,7 @@ purrr::walk(
       addHeatmap(
         data = london_crimes[[month]],
         layerId = month, group = month,
-        lng=~Longitude, lat=~Latitude,
+        lng = ~Longitude, lat = ~Latitude,
         blur = 20, max = 0.05, radius = 15)
   })
 

@@ -19,8 +19,8 @@ leaflet() %>% setView(-77.0369, 38.9072, 12) %>%
   addKML(
     kml,
     markerType = 'circleMarker',
-    stroke=FALSE, fillColor='black', fillOpacity = 1,
-    markerOptions = markerOptions(radius=1))
+    stroke = FALSE, fillColor = 'black', fillOpacity = 1,
+    markerOptions = markerOptions(radius = 1))
 
 #' ## Shape Data
 
@@ -45,16 +45,16 @@ leaflet() %>%
          var awater = props.AWATER/100000;
          return 100*awater/(awater+aland);
       }'),
-    scale = 'OrRd', mode='q', steps = 5,
+    scale = 'OrRd', mode = 'q', steps = 5,
     padding = c(0.2, 0),
     popupProperty = 'description',
     labelProperty = 'NAME',
-    color='#ffffff', weight=1, fillOpacity = 1,
+    color = '#ffffff', weight = 1, fillOpacity = 1,
     highlightOptions =
-      highlightOptions(fillOpacity=1, weight=2, opacity=1, color='#000000',
-                       bringToFront=TRUE, sendToBack = TRUE),
+      highlightOptions(fillOpacity = 1, weight = 2, opacity = 1, color = '#000000',
+                       bringToFront = TRUE, sendToBack = TRUE),
     legendOptions = legendOptions(
-      title='% of Water Area',
+      title = '% of Water Area',
       numberFormatOptions = list(style = 'decimal',
                                  maximumFractionDigits = 2))
   )
