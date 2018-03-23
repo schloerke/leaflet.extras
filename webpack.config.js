@@ -63,14 +63,12 @@ library_prod = function(name, filename = name, library = undefined) {
   }
   return ret;
 }
-library_prod_externals = function(externals, ...info) {
-  var ret = library_prod(...info);
-  ret.externals = Object.assign({}, ret.externals, externals);
-  return ret;
+let add_externals = function(config, externals) {
+  config.externals = Object.assign(config.externals, externals);
+  return config;
 }
-library_prod_attachements = function(attachments, output_folder, ...info) {
-  var ret = library_prod(...info)
-  ret.plugins = [
+let add_attachements = function(config, attachments, output_folder) {
+  config.plugins = config.plugins.concat([
     new CopyWebpackPlugin(
       [{
         from: attachments,
@@ -78,8 +76,8 @@ library_prod_attachements = function(attachments, output_folder, ...info) {
         flatten: true
       }]
     )
-  ]
-  return ret;
+  ]);
+  return config;
 }
 
 library_raw = function(entry, filename, foldername) {
@@ -126,12 +124,15 @@ const config = [
   library_prod("topojson", "topojson", "topojson"),
 
   // "@mapbox/leaflet-omnivore": "0.3.4",
-  library_prod_externals({
-    topojson: "topojson",
-    csv2geojson: "csv2geojson",
-    togeojson: "toGeoJSON",
-  }, "@mapbox/leaflet-omnivore", "leaflet-omnivore"),
   // library_binding("leaflet-omnivore"),
+  add_externals(
+    library_prod("@mapbox/leaflet-omnivore", "leaflet-omnivore"),
+    {
+      topojson: "topojson",
+      csv2geojson: "csv2geojson",
+      togeojson: "toGeoJSON"
+    }
+  ),
 
   // "Leaflet.Geodesic": "github:henrythasler/Leaflet.Geodesic#c5fe36b",
   library_prod("Leaflet.Geodesic", "leaflet-geodesic"),
@@ -210,10 +211,12 @@ const config = [
   library_prod("leaflet-sleep"),
 
   // "leaflet-webgl-heatmap": "0.2.7",
-  library_prod_attachements(
+  add_attachements(
+    library_prod(
+      ["webgl-heatmap/webgl-heatmap.js", "leaflet-webgl-heatmap"],
+      "leaflet-webgl-heatmap"
+    ),
     "node_modules/webgl-heatmap/*.png",
-    "leaflet-webgl-heatmap",
-    ["webgl-heatmap/webgl-heatmap.js", "leaflet-webgl-heatmap"],
     "leaflet-webgl-heatmap"
   ),
   // library_binding("leaflet-webgl-heatmap"),
