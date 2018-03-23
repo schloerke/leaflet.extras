@@ -101,13 +101,6 @@ const config = [
 
   // library_prod(LIBRARY, SAVE_NAME, GLOBAL_JS_VAR_NAME)
 
-  // library_raw(
-  //   src_path + "utils/leaflet_extras-utils.js",
-  //   "leaflet_extras-utils.js",
-  //   "leaflet_extras-utils"
-  // ),
-
-
   // "csv2geojson": "5.0.2",
   // "togeojson": "0.16.0",
   // "topojson": "3.0.2"
@@ -137,7 +130,6 @@ const config = [
   ),
   library_binding("leaflet-styleeditor"),
 
-
   // "leaflet-choropleth": "1.1.4",
   library_prod("leaflet-choropleth"),
 
@@ -155,11 +147,6 @@ const config = [
     ["leaflet-fullscreen", "leaflet-fullscreen/dist/leaflet.fullscreen.css"],
     "leaflet-fullscreen"
   ),
-  // library_raw(
-  //   "leaflet-fullscreen/dist/leaflet.fullscreen.css",
-  //   "leaflet-fullscreen" + ".css",
-  //   "leaflet-fullscreen"
-  // ),
 
   // "leaflet-gps": "1.7.0",
   library_prod(
@@ -219,7 +206,6 @@ const config = [
     "leaflet-wms-legend"
   ),
 
-
   // "leaflet.heat": "0.2.0",
   library_prod(src_path + "heat/leaflet-heat.js", "leaflet-heat"),
   library_binding("leaflet-heat"),
@@ -241,11 +227,12 @@ const config = [
   ),
   library_binding("leaflet-weather-markers"),
 
-
   // "leaflet.BounceMarker": "github:maximeh/leaflet.bouncemarker#v1.1",
   library_prod("leaflet.BounceMarker", "leaflet-bouncemarker"),
-  library_binding("leaflet-bouncemarker")
+  library_binding("leaflet-bouncemarker"),
 
+
+  library_binding("map-widget-style")
 
 
 
